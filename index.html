@@ -331,10 +331,12 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 .cer{border-top:1px solid var(--ln)}
 .cg{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .ci{background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:18px}.ci i{font-style:normal;font-size:26px;display:block;margin-bottom:8px}.ci b{display:block;font-size:17px;margin-bottom:4px}.ci p{margin:0;color:var(--mu);font-size:15px}
+.itabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}.cer .ci i{font-style:normal}
+@media(min-width:900px){.bk{grid-template-columns:1fr;max-width:820px}}
 </style></head><body>
 <header class="top"><div class="w bar">
 <a class="logo" href="#nachalo" aria-label="Tonchev Auto – начало"><img src="icons/logo.png" alt="Tonchev Auto"></a>
-<nav class="tabs" aria-label="Меню"><a href="#nachalo">Начало</a><a href="#detailing">Детайлинг</a><a href="#servis">Сервиз</a><a href="#diagnoza">Диагноза</a><a href="#snimki">Снимки</a><a href="#za-nas">За нас</a></nav>
+<nav class="tabs" aria-label="Меню"><a href="#nachalo">Начало</a><a href="#detailing">Детайлинг</a><a href="#servis">Сервиз</a><a href="#diagnoza">Диагноза</a><a href="#snimki">Снимки</a><a href="#informacia">Информация</a><a href="#za-nas">За нас</a><a href="#rezervacia">Резервация</a></nav>
 <a class="call" id="hp" href="#kontakti">Контакти</a></div></header>
 <main>
 <div class="view" id="v-nachalo">
@@ -361,46 +363,26 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <section class="band"><div class="w"><h2>В действие</h2><p class="lead">Клипове от нашата работа.</p><div class="vs"><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid1.mp4" poster="video/poster1.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid4.mp4" poster="video/poster4.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid2.mp4" poster="video/poster2.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid3.mp4" poster="video/poster3.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid5.mp4" poster="video/poster5.jpg" style="aspect-ratio:16/9" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid6.mp4" poster="video/poster6.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video></div></div></section>
 <section><div class="w"><h2>Свършена работа</h2><p class="lead">Част от свършената работа.</p><div class="mas" data-set="d"><figure><button type="button" data-i="0" aria-label="Отвори снимка: Audi – полиран капак"><img loading="lazy" decoding="async" src="th/d02.jpg" alt="Audi – полиран капак"></button><figcaption>Audi – полиран капак</figcaption></figure><figure><button type="button" data-i="1" aria-label="Отвори снимка: Полиране на фарове"><img loading="lazy" decoding="async" src="th/d05.jpg" alt="Полиране на фарове"></button><figcaption>Полиране на фарове</figcaption></figure><figure><button type="button" data-i="6" aria-label="Отвори снимка: Volkswagen – полиране"><img loading="lazy" decoding="async" src="th/d10.jpg" alt="Volkswagen – полиране"></button><figcaption>Volkswagen – полиране</figcaption></figure><figure><button type="button" data-i="11" aria-label="Отвори снимка: Mercedes – блестяща боя"><img loading="lazy" decoding="async" src="th/d14.jpg" alt="Mercedes – блестяща боя"></button><figcaption>Mercedes – блестяща боя</figcaption></figure></div><div class="mas" data-set="s"><figure><button type="button" data-i="28" aria-label="Отвори снимка: Audi"><img loading="lazy" decoding="async" src="th/s02.jpg" alt="Audi"></button><figcaption>Audi</figcaption></figure><figure><button type="button" data-i="29" aria-label="Отвори снимка: BMW"><img loading="lazy" decoding="async" src="th/s03.jpg" alt="BMW"></button><figcaption>BMW</figcaption></figure><figure><button type="button" data-i="31" aria-label="Отвори снимка: Toyota"><img loading="lazy" decoding="async" src="th/s08.jpg" alt="Toyota"></button><figcaption>Toyota</figcaption></figure><figure><button type="button" data-i="32" aria-label="Отвори снимка: Opel"><img loading="lazy" decoding="async" src="th/s09.jpg" alt="Opel"></button><figcaption>Opel</figcaption></figure></div><div class="btns more"><button class="btn ghost" type="button" data-go="snimki" data-f="all">Всички снимки</button></div><div class="cta"><p>Готови ли сте? Запазете час за минута.</p><a class="btn" href="#rezervacia">Запази час</a></div></div></section>
 <section class="rv"><div class="w"><div class="cta"><p>Бяхте ли доволни от нас? Оставете отзив в Google. Отнема 30 секунди и помага много.</p><a class="btn" href="https://maps.app.goo.gl/euazdCBXEdwLSLtP6" target="_blank" rel="noopener">Оставете отзив в Google</a></div></div></section>
-<section class="faq"><div class="w"><h2>Често задавани въпроси</h2><p class="lead">Не намирате отговор? Обадете се: детайлинг 0894 737 402, сервиз 0896 384 321.</p>
-<div class="fq">
-<details><summary>Колко струва?</summary><p>Цените са от 30 € до 1000 € според услугата, размера и състоянието на колата. Точната цена уговаряме на място след оглед. Абонаментът за поддръжка на интериора е 70 € на месец.</p></details>
-<details><summary>Как се плаща?</summary><p>В брой, на място, когато вземете колата.</p></details>
-<details><summary>Трябва ли да запазя час предварително?</summary><p>Да, препоръчително е. Изберете ден онлайн или се обадете. Точния час уточняваме по телефона.</p></details>
-<details><summary>Колко време отнема?</summary><p>Зависи от услугата: от 30 минути за фарове до 16–20 часа работа за премиум полиране. За по-големите услуги колата остава при нас от 1 до 3 дни. Времето за всяка услуга е в ценоразписа.</p></details>
-<details><summary>Колко издържа керамичното покритие?</summary><p>Керамиката пази боята и фаровете от 5 до 10 години, ако колата се поддържа правилно.</p></details>
-<details><summary>Как да поддържам колата след полиране с керамика?</summary><p>Общи препоръки: не мийте колата първите дни след нанасянето, използвайте pH-неутрален шампоан и избягвайте автомивки с четки. Христо ще ви каже какво точно важи за вашата кола.</p></details>
-<details><summary>Правите ли основен ремонт на двигател или ГРМ?</summary><p>Не. Не правим основен ремонт на двигател и смяна на ангренажен ремък (ГРМ). Правим масла и филтри, ремъци на алтернатор и климатик, окачване и всичко останало по колата.</p></details>
-<details><summary>Не знам какво ѝ трябва на колата ми. Какво да направя?</summary><p>Пробвайте <a href="#diagnoza">онлайн диагнозата</a>: за 30 секунди получавате план с цена и време, или просто ни се обадете.</p></details>
-</div></div></section>
+
 
 </div>
 
 <div class="view" id="v-detailing">
 <div class="w sp"><div><h1>Автодетайлинг в Пловдив</h1><p>Пране на интериор, детайлно почистване, полиране на боя и фарове с керамично покритие. Реални резултати, без празни обещания.</p><div class="btns"><a class="btn" href="#rezervacia">Запази час</a><a class="btn ghost" href="tel:+359894737402">Христо: 0894 737 402</a></div></div><img src="full/e46.jpg" alt="Червено BMW E46 след полиране" style="object-position:40% 75%"></div>
 <div class="w"><div class="tr"><div>Професионална техника и препарати<small>за всяка повърхност</small></div><div>Керамично покритие<small>защита от 5 до 10 години</small></div><div>Индивидуален подход<small>към всеки автомобил</small></div></div></div>
-<section><div class="w"><h2>Ценоразпис</h2><p class="lead">Цени от 30 € до 1000 €. Точната цена уговаряме на място след оглед на колата.</p><div class="pg" id="ceni">
+<section><div class="w"><h2>Ценоразпис</h2><p class="lead">Цената зависи от автомобила и състоянието му. Уговаряме я на място след оглед.</p><div class="pg" id="ceni">
 <div class="pc"><h3>Почистване на интериор</h3><p>Ръчна работа с професионални препарати.</p><ul class="pk"><li><h4>Освежаване</h4><b>след оглед</b><p>Прахосмукуване, детайлно почистване на интериор, стъкла, авто парфюм (10–40 дни).</p><em class="wt">⏱ 1–2 ч работа · един човек</em></li><li><h4>Комплексно</h4><b>след оглед</b><p>Пране на мокет и седалки, дезинфекция с парочистачка, детайлно почистване, стъкла, парфюм, подхранване на кожа и пластмаси (по желание).</p><em class="wt">⏱ 4–6 ч работа · един човек</em></li><li><h4>Премиум</h4><b>след оглед</b><p>Пране на багажник, двигателен отсек, подхранване на кожа, пластмаси и уплътнения, стелки и стъкла, дезинфекция, детайлно почистване, парфюм.</p><em class="wt">⏱ 6–8 ч работа · един човек</em></li></ul></div>
 <div class="pc"><h3>Полиране на боя</h3><p>Корекция на лака, блясък и защита.</p><ul class="pk"><li><h4>Освежаване</h4><b>след оглед</b><p>Корекция на лак, премахване на леки драскотини, възстановяване на блясъка. За поддържани автомобили.</p><em class="wt">⏱ 4–6 ч работа · един човек</em></li><li><h4>Блясък</h4><b>след оглед</b><p>Средна корекция, премахване на драскотини, дълбочина на цвета. За средно износени автомобили.</p><em class="wt">⏱ 8–12 ч (с керамика 10–15 ч) работа · един човек</em></li><li><h4>Премиум</h4><b>след оглед</b><p>Безплатно външно измиване, дълбока корекция, максимално премахване на драскотини, обезмасляване и керамично покритие със защита от 5 до 10 години.</p><em class="wt">⏱ 16–20 ч работа · един човек</em></li></ul></div>
 <div class="pc"><h3>Полиране на фарове</h3><p>Прозрачност и защита срещу пожълтяване.</p><ul class="pk"><li><h4>Освежаване</h4><b>след оглед</b><p>Почистване, лека корекция, премахване на пожълтяване, защитна паста. Защита 6–12 месеца.</p><em class="wt">⏱ 30–45 мин работа · един човек</em></li><li><h4>Блясък</h4><b>след оглед</b><p>Дълбока корекция, премахване на надраскотини, максимална прозрачност. Керамична защита от 5 до 10 години.</p><em class="wt">⏱ 1–1,5 ч (с керамика 1,5–2 ч) работа · един човек</em></li><li><h4>Премиум</h4><b>след оглед</b><p>Многостепенно полиране, максимално премахване на дефекти, възстановяване на фабричния вид, керамика или дълготрайна защита от 5 до 10 години.</p><em class="wt">⏱ 2–3 ч работа · един човек</em></li></ul></div>
 <div class="pc"><h3>Абонамент „Поддръжка интериор“</h3><p>Редовна грижа за интериора.</p><ul class="pk"><li><h4>Месечен абонамент</h4><b>70 €<small>на месец</small></b><p>Детайлно почистване на интериор, стъкла, стелки, прахосмукуване, багажник и авто парфюм (10–40 дни). Включена 5% отстъпка.</p><em class="wt">⏱ 1–2 ч работа · един човек</em></li></ul></div></div>
-<p class="note">Цените са от 30 € до 1000 € и се уточняват на място след оглед, според размера и състоянието на колата. Плащане в брой. Времето за работа е ориентировъчно, за един човек, и зависи от размера и състоянието на колата. Не сте сигурни какво ви трябва? <a href="#diagnoza">Онлайн диагноза</a></p></div></section>
+<p class="note">Цените за детайлинг зависят от размера и състоянието на колата и се уговарят на място след оглед. Плащане в брой. Времето за работа е ориентировъчно, за един човек, и зависи от размера и състоянието на колата. Не сте сигурни какво ви трябва? <a href="#diagnoza">Онлайн диагноза</a></p></div></section>
 <section class="insp"><div class="w"><div class="ig">
 <div class="it"><h2>Преместете лампата.</h2><p>Така изглежда лакът под инспекционна лампа: холограми и микродраскотини, които на дневна светлина не забелязвате. Машинното полиране ги премахва, а керамиката пази резултата от 5 до 10 години.</p>
 <ol class="ip"><li><b>Инспекция с лампа</b><span>Виждаме всеки дефект, преди да започнем.</span></li><li><b>Многостепенно полиране</b><span>Корекция на лака стъпка по стъпка.</span></li><li><b>Керамична защита</b><span>Блясък и защита от 5 до 10 години.</span></li></ol>
 <div class="btns"><a class="btn" href="#rezervacia">Запази полиране</a><a class="btn ghost" href="#ceni">Цени</a></div></div>
 <div class="lamp" data-lamp role="img" aria-label="Лак под инспекционна лампа: видими холограми и микродраскотини"><img class="l0" src="full/d26.jpg" alt="" loading="lazy"><img class="l1" src="full/d26.jpg" alt="" loading="lazy"><span class="lh">Плъзнете, за да огледате лака</span></div>
-</div></div></section><section class="cer"><div class="w"><h2>Какво прави керамиката?</h2><p class="lead">Керамичното покритие е течен защитен слой, който след нанасяне се втвърдява върху лака и фаровете. Става като второ, твърдо и гладко „стъкло“ върху боята.</p>
-<div class="cg">
-<div class="ci"><i aria-hidden="true">💧</i><b>Хидрофобен ефект</b><p>Водата се събира на капки и се оттича от колата. Заедно с нея се оттича и голяма част от мръсотията.</p></div>
-<div class="ci"><i aria-hidden="true">✨</i><b>Дълбок блясък</b><p>Цветът изглежда по-наситен и лакът блести като току-що полиран.</p></div>
-<div class="ci"><i aria-hidden="true">☀️</i><b>Защита от слънце</b><p>Пази от UV лъчите, избеляване и окисляване на боята и пожълтяване на фаровете.</p></div>
-<div class="ci"><i aria-hidden="true">🛡️</i><b>Химическа защита</b><p>По-устойчива на птичи курешки, смола, насекоми, сол и пътни химикали.</p></div>
-<div class="ci"><i aria-hidden="true">🧽</i><b>Лесно миене</b><p>Мръсотията полепва трудно, затова колата се мие по-бързо и с по-малко търкане.</p></div>
-<div class="ci"><i aria-hidden="true">📅</i><b>5–10 години</b><p>Защитата издържа години при правилна поддръжка, вместо седмици като восъка.</p></div>
-</div>
-<p class="note">Честно: керамиката не пази от удари с камъни и дълбоки драскотини. Затова преди нея боята се полира, за да заключим под покритието вече чист, блестящ лак.</p>
-</div></section>
-<section class="band"><div class="w"><h2>Как работим</h2><ol class="st"><li><b>Запазвате час</b><span>Онлайн или по телефона.</span></li><li><b>Оглед и цена</b><span>Уточняваме обхвата преди да започнем.</span></li><li><b>Обработка</b><span>Получавате колата с видим ефект.</span></li></ol></div></section>
+</div></div></section>
+<section style="padding-bottom:0"><div class="w"><div class="cta" style="margin-top:0"><p>Какво прави керамиката и защо полиране? Вижте в „Информация“.</p><a class="btn ghost" href="#informacia">Информация</a></div></div></section><section class="band"><div class="w"><h2>Как работим</h2><ol class="st"><li><b>Запазвате час</b><span>Онлайн или по телефона.</span></li><li><b>Оглед и цена</b><span>Уточняваме обхвата преди да започнем.</span></li><li><b>Обработка</b><span>Получавате колата с видим ефект.</span></li></ol></div></section>
 <section><div class="w"><h2>Свършена работа</h2><p class="lead">Избрани снимки и клипове.</p><div class="mas" data-set="d"><figure><button type="button" data-i="0" aria-label="Отвори снимка: Audi – полиран капак"><img loading="lazy" decoding="async" src="th/d02.jpg" alt="Audi – полиран капак"></button><figcaption>Audi – полиран капак</figcaption></figure><figure><button type="button" data-i="1" aria-label="Отвори снимка: Полиране на фарове"><img loading="lazy" decoding="async" src="th/d05.jpg" alt="Полиране на фарове"></button><figcaption>Полиране на фарове</figcaption></figure><figure><button type="button" data-i="6" aria-label="Отвори снимка: Volkswagen – полиране"><img loading="lazy" decoding="async" src="th/d10.jpg" alt="Volkswagen – полиране"></button><figcaption>Volkswagen – полиране</figcaption></figure><figure><button type="button" data-i="11" aria-label="Отвори снимка: Mercedes – блестяща боя"><img loading="lazy" decoding="async" src="th/d14.jpg" alt="Mercedes – блестяща боя"></button><figcaption>Mercedes – блестяща боя</figcaption></figure><figure><button type="button" data-i="12" aria-label="Отвори снимка: Блясък след полиране"><img loading="lazy" decoding="async" src="th/d09.jpg" alt="Блясък след полиране"></button><figcaption>Блясък след полиране</figcaption></figure><figure><button type="button" data-i="18" aria-label="Отвори снимка: Интериор – почистване"><img loading="lazy" decoding="async" src="th/d15.jpg" alt="Интериор – почистване"></button><figcaption>Интериор – почистване</figcaption></figure><figure><button type="button" data-i="20" aria-label="Отвори снимка: Почистен багажник"><img loading="lazy" decoding="async" src="th/d18.jpg" alt="Почистен багажник"></button><figcaption>Почистен багажник</figcaption></figure><figure><button type="button" data-i="10" aria-label="Отвори снимка: Mercedes"><img loading="lazy" decoding="async" src="th/d08.jpg" alt="Mercedes"></button><figcaption>Mercedes</figcaption></figure></div><div class="btns more"><button class="btn ghost" type="button" data-go="snimki" data-f="d">Всички снимки от детайлинга</button></div><div style="margin-top:34px"><div class="vs"><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid1.mp4" poster="video/poster1.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid4.mp4" poster="video/poster4.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid2.mp4" poster="video/poster2.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid3.mp4" poster="video/poster3.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid5.mp4" poster="video/poster5.jpg" style="aspect-ratio:16/9" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid6.mp4" poster="video/poster6.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video></div></div><div class="cta"><p>Искате колата ви да изглежда така?</p><a class="btn" href="#rezervacia">Запази час</a></div></div></section>
 </div>
 
@@ -454,16 +436,7 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <p><b>„Бисквитки“.</b> Сайтът не използва рекламни или проследяващи „бисквитки“.</p>
 <p>Администратор на данните: Tonchev Auto, ул. „Кузман Шапкарев“ 20, 4004 Пловдив.</p></div></section></div>
 
-<div class="view" id="v-za-nas"><section style="padding-top:44px"><div class="w about"><h1 class="sh" style="font-size:clamp(30px,6vw,48px);margin-bottom:22px">За нас</h1>
-<p class="sign">Здравейте, ние сме двамата Христовци.</p>
-<p>Tonchev Auto е автодетайлинг и сервиз в Пловдив, ж.к. Христо Ботев – Юг. Двама души с едно и също име: единият се занимава с детайлинг, другият със сервиза.</p>
-<p><b>Детайлинг:</b> пране на интериор, детайлно почистване, месечен абонамент за интериор, полиране на боя и фарове с керамично покритие.<br><b>Сервиз:</b> масла, филтри, ремъци, окачване и всичко друго, освен основен ремонт на двигателя и ангренажен ремък.</p>
-<p>Работим с професионална техника и препарати, обръщаме внимание на всеки детайл и подхождаме индивидуално към всеки автомобил. Целта ни е реален резултат, без празни обещания.</p></div>
-<div class="w"><div class="two"><div class="pcard"><h3>Христо – детайлинг</h3><p>Полиране, керамика, интериор.</p><b>0894 737 402</b><div class="btns"><a class="btn" href="tel:+359894737402">Обади се</a><a class="btn ghost" href="viber://chat?number=%2B359894737402">Viber</a></div></div>
-<div class="pcard"><h3>Христо – сервиз</h3><p>Масла, ремъци, окачване.</p><b>0896 384 321</b><div class="btns"><a class="btn" href="tel:+359896384321">Обади се</a><a class="btn ghost" href="viber://chat?number=%2B359896384321">Viber</a></div></div></div>
-<div class="btns" style="margin-top:30px"><a class="btn ghost" href="https://www.facebook.com/share/14wnH7sxgSF/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a><a class="btn ghost" href="https://www.instagram.com/tonchevauto" target="_blank" rel="noopener">Instagram</a><a class="btn ghost" href="https://maps.app.goo.gl/euazdCBXEdwLSLtP6" target="_blank" rel="noopener">Google Maps</a></div></div></section></div>
-
-<section id="rezervacia"><div class="w"><h2>Запазете час</h2><p class="lead">Три стъпки. Избирате ден, а Христо ви се обажда, за да потвърди резервацията и часа.</p>
+<div class="view" id="v-rezervacia"><section id="rezervacia" style="padding-top:44px"><div class="w"><h1 class="sh" style="font-size:clamp(30px,6vw,48px)">Запазете час</h1><p class="lead">Три стъпки. Избирате ден, а Христо ви се обажда, за да потвърди резервацията и часа.</p>
 <div class="bk"><div class="bm">
 <ol class="prog" aria-label="Стъпки"><li id="g1">1 Услуга</li><li id="g2">2 Ден</li><li id="g3">3 Данни</li></ol>
 <div class="pane" id="p1"><h3>Какво да направим по колата?</h3>
@@ -488,8 +461,64 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <p class="hint" id="ynote"></p>
 <div class="nav" style="justify-content:flex-start"><a class="btn ghost" id="yvb" href="#">Отвори Viber отново</a><a class="btn ghost" id="ysms" href="#">Изпрати по SMS</a><a class="btn ghost" id="ical" href="#" hidden>Добави в календара</a><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=ул.+Кузман+Шапкарев+20,+4004+Пловдив" target="_blank" rel="noopener">Как да стигнете</a><button class="btn ghost" type="button" id="nw">Нова заявка</button></div></div>
 </div>
-<aside class="sum" aria-label="Вашата заявка"><h3>Вашата заявка</h3><dl><dt>Услуга</dt><dd id="s1" class="e">Не е избрана</dd><dt>Ден</dt><dd id="s2" class="e">Не е избран</dd><dt>Време за работа</dt><dd id="s5" class="e">Зависи от услугата</dd><dt>Колата остава</dt><dd id="s4" class="e">Зависи от услугата</dd><dt>Час</dt><dd id="s3">Уточнява се по телефона</dd><dt>Плащане</dt><dd>В брой на място</dd></dl>
-<div class="who" id="who"></div></aside></div></div></section>
+</div></div></section></div>
+<div class="view" id="v-informacia"><section style="padding-top:44px;padding-bottom:10px"><div class="w"><h1 class="sh" style="font-size:clamp(30px,6vw,48px)">Информация</h1><p class="lead">Полезно за колата ви: какво правим, защо и как да я поддържате.</p>
+<div class="itabs"><a href="#i-detailing" class="btn">Детайлинг</a><a href="#i-servis" class="btn ghost">Сервиз</a></div></div></section>
+<section id="i-detailing" style="border-top:1px solid var(--ln)"><div class="w"><p class="gst">Детайлинг</p><h2>Полиране, интериор и фарове</h2>
+<div class="cg">
+<div class="ci"><b>Защо машинно полиране?</b><p>С времето по лака се появяват холограми, микродраскотини и матовост от миене. Полирането сваля тънък слой от лака и премахва тези дефекти, без да се боядисва.</p></div>
+<div class="ci"><b>Интериорно почистване</b><p>Пране на седалки и мокет, почистване на табло, врати и стъкла и дезинфекция с пара. Маха петна и миризми, а не само прах.</p></div>
+<div class="ci"><b>Полиране на фарове</b><p>Пожълтелите и матови фарове светят по-слабо. След полиране са прозрачни отново, а с керамика остават така по-дълго.</p></div>
+<div class="ci"><b>Full Detail Premium</b><p>Всичко накуп: интериор, полиране на боя, фарове и керамична защита. Колата остава при нас 2–4 дни.</p></div>
+</div></div></section>
+<section class="cer" id="keramika"><div class="w"><h2>Какво прави керамиката?</h2><p class="lead">Керамичното покритие е течен защитен слой, който след нанасяне се втвърдява върху лака и фаровете. Става като второ, твърдо и гладко „стъкло“ върху боята.</p>
+<div class="cg">
+<div class="ci"><i aria-hidden="true">💧</i><b>Хидрофобен ефект</b><p>Водата се събира на капки и се оттича от колата. Заедно с нея се оттича и голяма част от мръсотията.</p></div>
+<div class="ci"><i aria-hidden="true">✨</i><b>Дълбок блясък</b><p>Цветът изглежда по-наситен и лакът блести като току-що полиран.</p></div>
+<div class="ci"><i aria-hidden="true">☀️</i><b>Защита от слънце</b><p>Пази от UV лъчите, избеляване и окисляване на боята и пожълтяване на фаровете.</p></div>
+<div class="ci"><i aria-hidden="true">🛡️</i><b>Химическа защита</b><p>По-устойчива на птичи курешки, смола, насекоми, сол и пътни химикали.</p></div>
+<div class="ci"><i aria-hidden="true">🧽</i><b>Лесно миене</b><p>Мръсотията полепва трудно, затова колата се мие по-бързо и с по-малко търкане.</p></div>
+<div class="ci"><i aria-hidden="true">📅</i><b>5–10 години</b><p>Защитата издържа години при правилна поддръжка, вместо седмици като восъка.</p></div>
+</div>
+<p class="note">Честно: керамиката не пази от удари с камъни и дълбоки драскотини. Затова преди нея боята се полира, за да заключим под покритието вече чист, блестящ лак.</p>
+</div></section>
+<section style="border-top:1px solid var(--ln)"><div class="w"><h2>Грижа след керамика</h2><div class="cg">
+<div class="ci"><b>Първите дни</b><p>Покритието се втвърдява напълно за няколко дни. Не мийте колата през това време. Точния срок ще ви каже Христо.</p></div>
+<div class="ci"><b>Миене</b><p>Ползвайте pH-неутрален шампоан и мека ръкавица. Избягвайте автомивки с четки.</p></div>
+<div class="ci"><b>Сушене</b><p>Подсушавайте с мека микрофибърна кърпа, за да няма петна от варовик.</p></div>
+</div></div></section>
+<section id="i-servis" style="border-top:1px solid var(--ln)"><div class="w"><p class="gst">Сервиз</p><h2>Кога да дойдете в сервиза</h2><p class="lead">Общи насоки. Точните интервали за вашата кола са в сервизната книжка на производителя.</p>
+<div class="cg">
+<div class="ci"><b>Масло и маслен филтър</b><p>Сменят се по интервала на производителя, обикновено на определен пробег или веднъж годишно, кое от двете дойде първо. Старото масло пази двигателя по-зле.</p></div>
+<div class="ci"><b>Въздушен и купе филтър</b><p>Мръсният въздушен филтър намалява мощността и увеличава разхода. Мръсният купе филтър личи по миризма и слаба вентилация.</p></div>
+<div class="ci"><b>Ремъци</b><p>Свирене или скърцане при палене или при включен климатик често значи износен ремък или обтяжител. По-добре да се провери навреме.</p></div>
+<div class="ci"><b>Окачване</b><p>Тропане на неравности, дърпане настрани, неравномерно износване на гумите или „плаваща“ кола са знаци за проверка на окачването.</p></div>
+<div class="ci"><b>Какво не правим</b><p>Основен ремонт на двигател и смяна на ангренажен ремък (ГРМ).</p></div>
+</div><div class="cta"><p>Не сте сигурни какво ѝ трябва? Пробвайте онлайн диагнозата.</p><a class="btn" href="#diagnoza">Диагноза</a></div></div></section>
+<section class="faq"><div class="w"><h2>Често задавани въпроси</h2><p class="lead">Не намирате отговор? Обадете се: детайлинг 0894 737 402, сервиз 0896 384 321.</p>
+<div class="fq">
+<details><summary>Колко струва детайлингът?</summary><p>Цената зависи от автомобила: размер, състояние на боята и интериора и избраните услуги. Уговаряме я на място след оглед. Абонаментът за поддръжка на интериора е 70 € на месец.</p></details>
+<details><summary>Как се плаща?</summary><p>В брой, на място, когато вземете колата.</p></details>
+<details><summary>Трябва ли да запазя час предварително?</summary><p>Да, препоръчително е. Изберете ден онлайн или се обадете. Точния час уточняваме по телефона.</p></details>
+<details><summary>Колко време отнема?</summary><p>Зависи от услугата: от 30 минути за фарове до 16–20 часа работа за премиум полиране. За по-големите услуги колата остава при нас от 1 до 3 дни. Времето за всяка услуга е в ценоразписа.</p></details>
+<details><summary>Колко издържа керамичното покритие?</summary><p>Керамиката пази боята и фаровете от 5 до 10 години, ако колата се поддържа правилно.</p></details>
+<details><summary>Как да поддържам колата след полиране с керамика?</summary><p>Общи препоръки: не мийте колата първите дни след нанасянето, използвайте pH-неутрален шампоан и избягвайте автомивки с четки. Христо ще ви каже какво точно важи за вашата кола.</p></details>
+<details><summary>Правите ли основен ремонт на двигател или ГРМ?</summary><p>Не. Не правим основен ремонт на двигател и смяна на ангренажен ремък (ГРМ). Правим масла и филтри, ремъци на алтернатор и климатик, окачване и всичко останало по колата.</p></details>
+<details><summary>Не знам какво ѝ трябва на колата ми. Какво да направя?</summary><p>Пробвайте <a href="#diagnoza">онлайн диагнозата</a>: за 30 секунди получавате план с цена и време, или просто ни се обадете.</p></details>
+</div></div></section>
+<section style="padding-top:0"><div class="w"><div class="cta"><p>Готови ли сте? Запазете час за минута.</p><a class="btn" href="#rezervacia">Запази час</a></div></div></section>
+</div>
+
+<div class="view" id="v-za-nas"><section style="padding-top:44px"><div class="w about"><h1 class="sh" style="font-size:clamp(30px,6vw,48px);margin-bottom:22px">За нас</h1>
+<p class="sign">Здравейте, ние сме двамата Христовци.</p>
+<p>Tonchev Auto е автодетайлинг и сервиз в Пловдив, ж.к. Христо Ботев – Юг. Двама души с едно и също име: единият се занимава с детайлинг, другият със сервиза.</p>
+<p><b>Детайлинг:</b> пране на интериор, детайлно почистване, месечен абонамент за интериор, полиране на боя и фарове с керамично покритие.<br><b>Сервиз:</b> масла, филтри, ремъци, окачване и всичко друго, освен основен ремонт на двигателя и ангренажен ремък.</p>
+<p>Работим с професионална техника и препарати, обръщаме внимание на всеки детайл и подхождаме индивидуално към всеки автомобил. Целта ни е реален резултат, без празни обещания.</p></div>
+<div class="w"><div class="two"><div class="pcard"><h3>Христо – детайлинг</h3><p>Полиране, керамика, интериор.</p><b>0894 737 402</b><div class="btns"><a class="btn" href="tel:+359894737402">Обади се</a><a class="btn ghost" href="viber://chat?number=%2B359894737402">Viber</a></div></div>
+<div class="pcard"><h3>Христо – сервиз</h3><p>Масла, ремъци, окачване.</p><b>0896 384 321</b><div class="btns"><a class="btn" href="tel:+359896384321">Обади се</a><a class="btn ghost" href="viber://chat?number=%2B359896384321">Viber</a></div></div></div>
+<div class="btns" style="margin-top:30px"><a class="btn ghost" href="https://www.facebook.com/share/14wnH7sxgSF/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a><a class="btn ghost" href="https://www.instagram.com/tonchevauto" target="_blank" rel="noopener">Instagram</a><a class="btn ghost" href="https://maps.app.goo.gl/euazdCBXEdwLSLtP6" target="_blank" rel="noopener">Google Maps</a></div></div></section></div>
+
+
 
 <section id="kontakti" style="padding-top:50px"><div class="w"><h2>Контакти</h2><div class="ct">
 <div class="cc"><small>Детайлинг – Христо</small><b><a href="tel:+359894737402">+359 89 473 7402</a></b></div>
@@ -512,7 +541,7 @@ function $(i){return document.getElementById(i)}
 function qa(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
 var st={cat:"d",svc:"",grp:"",date:null,need:1,max:1,wt:"",step:1};
 /* ---- views ---- */
-var VW=["nachalo","detailing","servis","diagnoza","snimki","za-nas","poveritelnost"],curV="nachalo";
+var VW=["nachalo","detailing","servis","diagnoza","snimki","informacia","za-nas","rezervacia","poveritelnost"],curV="nachalo";
 function hp(){var a=$("hp");if(curV==="servis"){a.href="tel:+"+PH.s;a.textContent=PD.s}else if(curV==="detailing"){a.href="tel:+"+PH.d;a.textContent=PD.d}else{a.href="#kontakti";a.textContent="Контакти"}}
 function showView(v){curV=v;qa(".view").forEach(function(x){x.classList.toggle("on",x.id==="v-"+v)});qa(".tabs a").forEach(function(a){if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});hp();if(st.step===1&&!st.svc){if(v==="servis")setCat("s");else if(v==="detailing")setCat("d")}
  var t=document.querySelector(".tabs a[aria-current]");if(t&&t.scrollIntoView)try{t.scrollIntoView({inline:"center",block:"nearest"})}catch(e){}
@@ -547,7 +576,7 @@ document.addEventListener("visibilitychange",function(){if(!document.hidden)vis.
 /* ---- booking ---- */
 function setCat(c){st.cat=c;if(st.date&&!okDay(st.date))st.date=null;
  $("tD").setAttribute("aria-selected",String(c==="d"));$("tS").setAttribute("aria-selected",String(c==="s"));drawOpts();who()}
-function who(){$("who").textContent=WHO[st.cat]}
+function who(){var w=$("who");if(w)w.textContent=WHO[st.cat]}
 function dtx(mn,mx){if(mn===1&&mx===1)return"1 ден";return mn===mx?mn+" дни":mn+"–"+mx+" дни"}
 function drawOpts(){var box=$("opts");box.innerHTML="";var n=0;
  if(st.cat==="d"){var items=SV.d[0][1],sel=st.dsel||(st.dsel={});var w=document.createElement("div");w.className="dtiles";
@@ -576,7 +605,7 @@ function drawDays(){var box=$("cal");qa(".cd,.ce",box).forEach(function(x){x.rem
   b.onclick=function(){st.date=d;$("e2").textContent="";drawDays();sumUp()};box.appendChild(b)});
  $("dur2").textContent=st.svc?("⏱ "+(st.wt||"по оглед")+" работа (един човек)"+(st.max>1?". Колата остава "+dtx(st.need,st.max)+". Показани са само дните, в които можем да я поемем.":".")):""}
 function dtxt(){return st.date?DF[st.date.getDay()]+", "+st.date.getDate()+" "+MN[st.date.getMonth()]:""}
-function sumUp(){[["s1",st.svc,"Не е избрана"],["s2",dtxt(),"Не е избран"]].forEach(function(x){var e=$(x[0]);e.textContent=x[1]||x[2];e.className=x[1]?"":"e"});var e=$("s4");e.textContent=st.svc?dtx(st.need,st.max):"Зависи от услугата";e.className=st.svc?"":"e";var w=$("s5");w.textContent=st.svc?(st.wt||"по оглед")+" (един човек)":"Зависи от услугата";w.className=st.svc?"":"e"}
+function sumUp(){if(!$("s1"))return;[["s1",st.svc,"Не е избрана"],["s2",dtxt(),"Не е избран"]].forEach(function(x){var e=$(x[0]);e.textContent=x[1]||x[2];e.className=x[1]?"":"e"});var e=$("s4");e.textContent=st.svc?dtx(st.need,st.max):"Зависи от услугата";e.className=st.svc?"":"e";var w=$("s5");w.textContent=st.svc?(st.wt||"по оглед")+" (един човек)":"Зависи от услугата";w.className=st.svc?"":"e"}
 function go(n){st.step=n;for(var i=1;i<=4;i++)$("p"+i).classList.toggle("on",i===n);for(var j=1;j<=3;j++){var g=$("g"+j);g.classList.toggle("on",j===n);g.classList.toggle("ok",j<n||n===4)}
  var r=$("rezervacia");if(r&&r.getBoundingClientRect().top<0||r.getBoundingClientRect().top>window.innerHeight*0.5)r.scrollIntoView({behavior:"smooth"})}
 $("n1").onclick=function(){if(!st.svc){$("e1").textContent="Изберете услуга, за да продължите.";return}drawDays();go(2)};
@@ -620,9 +649,9 @@ function drawPlan(){var L=$("pl");L.innerHTML="";var items=ZO.filter(function(z)
   its.forEach(function(x){var pm=String(x[3]).match(/(\d+)(?:–(\d+))?/);if(pm){sum+=+pm[1];smx+=+(pm[2]||pm[1])}var h=hrs(x[4]);if(h){hn+=h[0];hx+=h[1]}else unk=true;nd=Math.max(nd,x[5]);mx=Math.max(mx,x[6])});
   nd=Math.min(5,Math.max(nd,Math.ceil(hn/8)));mx=Math.min(5,Math.max(mx,nd,Math.ceil(hx/8)));
   var wt=hx?rng(hn,hx):"по оглед";if(unk&&hx)wt+=" + оглед";
-  tot.push([c==="d"?"Детайлинг":"Сервиз",c==="d"?(its.every(function(x){return /\d/.test(x[3])})?sum+" €":"цена след оглед (30–1000 €)"):"цена по запитване","⏱ "+wt+" работа"+(mx>1?" · колата остава "+dtx(nd,mx):"")]);
+  tot.push([c==="d"?"Детайлинг":"Сервиз",c==="d"?(its.every(function(x){return /\d/.test(x[3])})?sum+" €":"цена след оглед"):"цена по запитване","⏱ "+wt+" работа"+(mx>1?" · колата остава "+dtx(nd,mx):"")]);
   var b=document.createElement("button");b.type="button";b.className="btn"+(c==="s"&&items.some(function(x){return x[1]==="d"})?" ghost":"");b.textContent=c==="d"?"Запази час за детайлинг":"Запази час за сервиз";
-  b.onclick=function(){setCat(c);st.svc=its.map(function(x){return x[2]+" ("+x[3]+")"}).join(" + ");st.grp=c;st.need=nd;st.max=mx;st.wt=wt;if(st.date&&!okDay(st.date))st.date=null;qa("#opts input").forEach(function(i){i.checked=false});sumUp();drawDays();go(2);var r=$("rezervacia");r.scrollIntoView({behavior:"smooth"})};B.appendChild(b)});
+  b.onclick=function(){setCat(c);st.svc=its.map(function(x){return x[2]+" ("+x[3]+")"}).join(" + ");st.grp=c;st.need=nd;st.max=mx;st.wt=wt;if(st.date&&!okDay(st.date))st.date=null;qa("#opts input").forEach(function(i){i.checked=false});sumUp();drawDays();go(2);location.hash="rezervacia"};B.appendChild(b)});
  var P=$("ptot");P.innerHTML="";tot.forEach(function(t){var r=document.createElement("div");r.className="tr2";var a=document.createElement("b");a.textContent=t[0]+": "+t[1];var s=document.createElement("small");s.textContent=t[2];r.appendChild(a);r.appendChild(s);P.appendChild(r)})}
 (function(){var zc=$("zc");ZO.forEach(function(z){var b=document.createElement("button");b.type="button";b.dataset.z=z;b.textContent=ZN[z][0];b.setAttribute("aria-pressed","false");b.onclick=function(){zone(z)};zc.appendChild(b)});
  qa(".hs").forEach(function(b){b.onclick=function(){zone(b.dataset.z)}});
