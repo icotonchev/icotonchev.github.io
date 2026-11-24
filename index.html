@@ -335,6 +335,23 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 @media(min-width:900px){.bk{grid-template-columns:1fr;max-width:820px}}
 .pc{overflow:hidden}.pci{display:block;width:calc(100% + 48px);margin:-24px -24px 18px;height:180px;object-fit:cover;border-bottom:1px solid var(--ln)}
 .pci{max-width:none}
+.how{display:grid;gap:10px;margin:0 0 26px;max-width:820px}
+.hw{display:flex;gap:14px;align-items:flex-start;background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:14px 16px}
+.hw>i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font:700 16px/34px Onest,system-ui,sans-serif;text-align:center;font-style:normal}
+.hw.ok{border-color:rgba(46,204,113,.35);background:rgba(46,204,113,.06)}.hw.ok>i{background:#2ecc71;color:#06130b}
+.hw b{display:block;font-size:16px}.hw p{margin:3px 0 0;color:var(--mu);font-size:14.5px;line-height:1.45}
+.arr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#7360f2;color:#fff;font-size:11px;vertical-align:1px}
+@media(min-width:900px){.how{grid-template-columns:repeat(5,1fr)}.hw{flex-direction:column;gap:10px}}
+.vbh b{color:var(--ink)}
+.easy{max-width:820px;margin:22px 0 0;border:1px dashed var(--ln);border-radius:18px;padding:18px}.easy>b{display:block;font-size:17px}.easy>span{display:block;color:var(--mu);margin:2px 0 12px}
+.easy .btns,.road .btns{display:flex;flex-wrap:wrap;gap:10px}
+.qh{max-width:820px;margin:34px 0 12px;font-size:22px}
+.qq{max-width:820px;border:1px solid var(--ln);border-radius:14px;background:var(--sf);margin:0 0 8px}
+.qq summary{cursor:pointer;padding:15px 44px 15px 16px;font-weight:600;list-style:none;position:relative}.qq summary::-webkit-details-marker{display:none}
+.qq summary::after{content:"+";position:absolute;right:16px;top:11px;font-size:22px;color:var(--red2)}.qq[open] summary::after{content:"–"}
+.qq p{margin:0;padding:0 16px 16px;color:var(--mu)}
+.road{max-width:820px;margin:34px 0 0}.road h2{font-size:22px;margin:0 0 6px}
+.mapw{border-radius:18px;overflow:hidden;border:1px solid var(--ln);height:260px;background:var(--sf);margin-bottom:12px}.mapw iframe{border:0;width:100%;height:100%;display:block;filter:invert(.9) hue-rotate(180deg) saturate(.6)}
 </style></head><body>
 <header class="top"><div class="w bar">
 <a class="logo" href="#nachalo" aria-label="Tonchev Auto – начало"><img src="icons/logo.png" alt="Tonchev Auto"></a>
@@ -438,7 +455,14 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <p><b>„Бисквитки“.</b> Сайтът не използва рекламни или проследяващи „бисквитки“.</p>
 <p>Администратор на данните: Tonchev Auto, ул. „Кузман Шапкарев“ 20, 4004 Пловдив.</p></div></section></div>
 
-<div class="view" id="v-rezervacia"><section id="rezervacia" style="padding-top:44px"><div class="w"><h1 class="sh" style="font-size:clamp(30px,6vw,48px)">Запазете час</h1><p class="lead">Три стъпки. Избирате ден, а Христо ви се обажда, за да потвърди резервацията и часа.</p>
+<div class="view" id="v-rezervacia"><section id="rezervacia" style="padding-top:44px"><div class="w"><h1 class="sh" style="font-size:clamp(30px,6vw,48px)">Запазете час</h1><p class="lead">Лесно е и отнема около минута. Не плащате нищо предварително.</p>
+<div class="how" aria-label="Как се запазва час">
+<div class="hw"><i>1</i><div><b>Изберете какво искате</b><p>Натиснете „Детайлинг“ или „Сервиз“ и отметнете услугата. Може и няколко.</p></div></div>
+<div class="hw"><i>2</i><div><b>Изберете ден</b><p>Докоснете деня, в който искате да дойдете. Шарените дни са заети.</p></div></div>
+<div class="hw"><i>3</i><div><b>Напишете име и телефон</b><p>Само за да ви се обадим. Не пращаме реклами.</p></div></div>
+<div class="hw"><i>4</i><div><b>Натиснете „Запази час“</b><p>Отваря се Viber с готово съобщение. Натиснете стрелката <span class="arr">➤</span>, за да го изпратите.</p></div></div>
+<div class="hw ok"><i>✓</i><div><b>Христо ви звъни</b><p>Обажда се, за да уговорите точния час. Плащате в брой, след като колата е готова.</p></div></div>
+</div>
 <div class="bk"><div class="bm">
 <ol class="prog" aria-label="Стъпки"><li id="g1">1 Услуга</li><li id="g2">2 Ден</li><li id="g3">3 Данни</li></ol>
 <div class="pane" id="p1"><h3>Какво да направим по колата?</h3>
@@ -451,7 +475,7 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <div class="fld"><div><label class="l" for="nm">Име</label><input class="i" id="nm" type="text" autocomplete="name"></div><div><label class="l" for="ph">Телефон</label><input class="i" id="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="08xx xxx xxx"></div>
 <div class="full"><label class="l" for="cr">Автомобил (марка и модел)</label><input class="i" id="cr" type="text" placeholder="напр. Volkswagen Golf"></div>
 <div class="full"><label class="l" for="nt">Забележка (по желание)</label><textarea class="i" id="nt" rows="2"></textarea></div></div><p class="hint" style="margin:12px 0 0">С изпращането се съгласявате да използваме данните ви само за връзка относно резервацията. <a href="#poveritelnost">Поверителност</a></p><p class="err" id="e3" role="alert"></p>
-<div class="nav"><button class="btn ghost" type="button" data-b="2">Назад</button><a class="btn" id="n3" href="#">Запази час</a></div></div>
+<div class="nav"><button class="btn ghost" type="button" data-b="2">Назад</button><a class="btn" id="n3" href="#">Запази час</a></div><p class="hint vbh">След „Запази час“ се отваря Viber. Не забравяйте да натиснете <b>➤ Изпрати</b>.</p></div>
 <div class="pane" id="p4"><h3 id="ty">Благодарим!</h3><p class="tyl">Очаквайте обаждане от Христо за потвърждение на резервацията.</p>
 <div class="pass" id="pass"><div class="pt"><img src="icons/logo.png" alt="Tonchev Auto"><span id="pno">Заявка за час</span></div>
 <div class="pm"><div><small>Ден</small><b id="y2"></b></div><div><small>Час</small><b>по телефона</b></div></div>
@@ -463,7 +487,18 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <p class="hint" id="ynote"></p>
 <div class="nav" style="justify-content:flex-start"><a class="btn ghost" id="yvb" href="#">Отвори Viber отново</a><a class="btn ghost" id="ysms" href="#">Изпрати по SMS</a><a class="btn ghost" id="ical" href="#" hidden>Добави в календара</a><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=ул.+Кузман+Шапкарев+20,+4004+Пловдив" target="_blank" rel="noopener">Как да стигнете</a><button class="btn ghost" type="button" id="nw">Нова заявка</button></div></div>
 </div>
-</div></div></section></div>
+</div>
+<div class="easy"><b>Не обичате формуляри?</b><span>Просто звъннете, ще запишем всичко вместо вас.</span><div class="btns"><a class="btn" href="tel:+359894737402">Детайлинг · 0894 737 402</a><a class="btn ghost" href="tel:+359896384321">Сервиз · 0896 384 321</a></div></div>
+<h2 class="qh">Често питат</h2>
+<details class="qq"><summary>Трябва ли да платя нещо сега?</summary><p>Не. Онлайн не се плаща нищо. Плащате само в брой, на място, когато колата е готова.</p></details>
+<details class="qq"><summary>Не знам какво ѝ има на колата. Какво да избера?</summary><p>При „Сервиз“ изберете „Друг ремонт“ и напишете в „Забележка“ какво забелязвате (шум, лампичка, вибрация). Може да пробвате и <a href="#diagnoza">онлайн диагнозата</a>.</p></details>
+<details class="qq"><summary>Нямам Viber. Какво да правя?</summary><p>Натиснете „Запази час“ все пак. На следващия екран има бутон „Изпрати по SMS“. Или просто ни звъннете.</p></details>
+<details class="qq"><summary>Изпратих, а още не са ми звъннали.</summary><p>Проверете във Viber дали съобщението е изпратено (натиснахте ли стрелката ➤). Ако не е, натиснете я. При съмнение звъннете директно.</p></details>
+<details class="qq"><summary>Колко време ще стои колата?</summary><p>Повечето услуги стават за един ден. За Full Detail Premium колата остава 2–4 дни. Точно ще ви кажем по телефона.</p></details>
+<div class="road" id="kak-da-stignete"><h2>Как да стигнете до нас</h2><p class="lead" style="margin-bottom:16px">ул. „Кузман Шапкарев“ 20, ж.к. Христо Ботев – Юг, Пловдив. Натиснете бутона и телефонът ще ви заведе до нас.</p>
+<div class="mapw"><iframe title="Карта: Tonchev Auto" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%D1%83%D0%BB.+%D0%9A%D1%83%D0%B7%D0%BC%D0%B0%D0%BD+%D0%A8%D0%B0%D0%BF%D0%BA%D0%B0%D1%80%D0%B5%D0%B2+20,+4004+%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2&z=16&output=embed"></iframe></div>
+<div class="btns"><a class="btn" href="https://maps.app.goo.gl/euazdCBXEdwLSLtP6" target="_blank" rel="noopener">Google Maps</a><a class="btn ghost" href="https://waze.com/ul?q=%D0%9A%D1%83%D0%B7%D0%BC%D0%B0%D0%BD%20%D0%A8%D0%B0%D0%BF%D0%BA%D0%B0%D1%80%D0%B5%D0%B2%2020%20%D0%9F%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2&navigate=yes" target="_blank" rel="noopener">Waze</a><a class="btn ghost" href="tel:+359894737402">Загубих се – звънни</a></div></div>
+</div></section></div>
 <div class="view" id="v-informacia"><section style="padding-top:44px;padding-bottom:10px"><div class="w"><h1 class="sh" style="font-size:clamp(30px,6vw,48px)">Информация</h1><p class="lead">Полезно за колата ви: какво правим, защо и как да я поддържате.</p>
 <div class="itabs"><a href="#i-detailing" class="btn">Детайлинг</a><a href="#i-servis" class="btn ghost">Сервиз</a></div></div></section>
 <section id="i-detailing" style="border-top:1px solid var(--ln)"><div class="w"><p class="gst">Детайлинг</p><h2>Полиране, интериор и фарове</h2>
@@ -614,7 +649,7 @@ $("n1").onclick=function(){if(!st.svc){$("e1").textContent="Изберете у�
 $("n2").onclick=function(){if(!st.date){$("e2").textContent="Изберете ден.";return}go(3)};
 qa("[data-b]").forEach(function(b){b.onclick=function(){go(+b.dataset.b)}});
 var MOB=(window.matchMedia&&matchMedia("(pointer:coarse)").matches)||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")}
+function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")+(st.date?"\n\nЗа Tonchev (отбележи деня): https://icotonchev.github.io/zaeti.html#c="+st.cat+"&d="+key(st.date)+"&n="+st.need:"")}
 function smsHref(){return "sms:+"+PH[st.cat]+"?&body="+encodeURIComponent(smsTxt())}
 function vbHref(){return "viber://chat?number=%2B"+PH[st.cat]+"&draft="+encodeURIComponent(smsTxt())}
 function upd(){$("n3").href=vbHref()}["nm","ph","cr","nt"].forEach(function(i){$(i).addEventListener("input",upd)});
@@ -628,6 +663,7 @@ $("n3").addEventListener("click",function(e){var nm=$("nm").value.trim(),dg=$("p
  setTimeout(function(){go(4)},MOB?400:0)});
 $("nw").onclick=function(){st.dsel={};st.dsels={d:{},s:{}};$("ysms").style.display="";$("yvb").style.display="";st.svc="";st.grp="";st.date=null;st.need=1;st.max=1;st.wt="";["nm","ph","cr","nt"].forEach(function(i){$(i).value=""});drawOpts();drawDays();sumUp();go(1)};
 setCat("d");drawDays();sumUp();go(1);showPh("all");
+try{if(location.protocol.indexOf("http")===0)fetch("zaeti.json?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j)return;BUSY={d:j.d||[],s:j.s||[]};if(st.date&&!okDay(st.date)){st.date=null;sumUp()}drawDays()}).catch(function(){})}catch(e){}
 var ZN={interior:["Интериор","Какво е състоянието вътре?",[["Прах и леко замърсяване","d","Почистване на интериор – Освежаване","след оглед","1–2 ч",1,1],["Петна по седалките или мокета","d","Почистване на интериор – Комплексно","след оглед","4–6 ч",1,2],["Много мръсно, искам всичко като ново","d","Почистване на интериор – Премиум","след оглед","6–8 ч",2,3],["Искам да е чисто всеки месец","d","Абонамент – Поддръжка интериор (месечно)","70 €","1–2 ч",1,1],["Друго – ще обясня по телефона","d","Интериор – друго, ще обясня по телефона","по оглед","по оглед",1,1],["Чисто е"]]],
  paint:["Боя","Как изглежда лакът на слънце?",[["Само е загубил блясък","d","Полиране на боя – Освежаване","след оглед","4–6 ч",1,1],["Виждат се холограми и драскотини","d","Полиране на боя – Блясък","след оглед","8–12 ч",1,2],["Драскотини, искам и защита 5–10 години","d","Полиране на боя – Блясък с керамика","след оглед","10–15 ч",2,2],["Силно износен, искам да е като нов","d","Полиране на боя – Премиум","след оглед","16–20 ч",2,3],["Друго – ще обясня по телефона","d","Боя – друго, ще обясня по телефона","по оглед","по оглед",1,1],["Добре е"]]],
  engine:["Двигател","Какво се случва под капака?",[["Наближава смяна на масло","s","Сервиз – Смяна на масло и филтри","по запитване","30–45 мин",1,1],["Свири или скърца ремък","s","Сервиз – Ремъци и обтяжители","по запитване","1–2 ч",1,1],["Друго – ще обясня по телефона","s","Двигател – друго, ще обясня по телефона","по оглед","по оглед",1,1],["Всичко е наред"]]],

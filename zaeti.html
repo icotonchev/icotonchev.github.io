@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Заети дни"><meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="icon" href="icons/favicon.png"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Заети дни – Tonchev</title>
+<style>
+:root{--bg:#060607;--sf:#0f0f11;--sf2:#17171b;--ln:#26262c;--ink:#f6f6f7;--mu:#a2a2ab;--red:#e4181b;--red2:#ff4a4d;--ok:#2ecc71;color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+.w{max-width:560px;margin:0 auto;padding:18px 16px 120px}
+header{display:flex;align-items:center;gap:12px;margin-bottom:14px}header img{height:34px}header h1{font-size:20px;margin:0}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:18px;margin:14px 0}
+h2{font-size:18px;margin:0 0 8px}p{margin:8px 0;color:var(--mu)}p b{color:var(--ink)}
+ol.st{margin:10px 0;padding:0;list-style:none;counter-reset:s}ol.st li{counter-increment:s;position:relative;padding:8px 0 8px 44px;color:var(--ink)}ol.st li::before{content:counter(s);position:absolute;left:0;top:6px;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;display:grid;place-items:center}
+ol.st small{display:block;color:var(--mu)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:14px;border:0;background:var(--red);color:#fff;font:600 16px system-ui,sans-serif;text-decoration:none;cursor:pointer;width:100%}
+.btn.g{background:var(--sf2);border:1px solid var(--ln)}.btn:disabled{opacity:.45}
+input{width:100%;min-height:50px;border-radius:12px;border:1px solid var(--ln);background:var(--sf2);color:var(--ink);padding:0 14px;font:15px ui-monospace,monospace;margin:8px 0}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--sf2);border:1px solid var(--ln);border-radius:14px;padding:5px;margin:6px 0 14px}
+.seg button{min-height:44px;border:0;border-radius:10px;background:transparent;color:var(--mu);font:600 15px system-ui,sans-serif}.seg button[aria-selected=true]{background:var(--red);color:#fff}
+.mh{font-weight:700;margin:16px 0 8px;text-transform:capitalize}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.wh{font-size:12px;color:var(--mu);text-align:center}
+.d{aspect-ratio:1;border-radius:12px;border:1px solid var(--ln);background:var(--sf2);color:var(--ink);font:600 16px system-ui,sans-serif;display:grid;place-items:center;padding:0;position:relative}
+.d.busy{background:var(--red);border-color:var(--red);color:#fff}.d.new{outline:3px solid #ffd23f;outline-offset:1px}
+.d.today{border-color:var(--ink)}.d:disabled{opacity:.25;background:transparent}
+.d.ch::after{content:"";position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:50%;background:#ffd23f}
+.lg{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--mu);margin:12px 0 0}.lg i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(6,6,7,.94);border-top:1px solid var(--ln);backdrop-filter:blur(8px)}
+.bar .in{max-width:560px;margin:0 auto}
+.msg{padding:12px 14px;border-radius:12px;margin:10px 0;font-weight:600}.msg.ok{background:rgba(46,204,113,.12);color:var(--ok)}.msg.er{background:rgba(228,24,27,.14);color:var(--red2)}.msg.inf{background:rgba(255,210,63,.12);color:#ffd23f}
+.sm{font-size:13px;color:var(--mu)}a{color:var(--ink)}
+.link{background:none;border:0;color:var(--mu);text-decoration:underline;font-size:14px;padding:10px 0;cursor:pointer}
+</style></head><body><div class="w">
+<header><img src="icons/logo.png" alt="Tonchev Auto"><h1>Заети дни</h1></header>
+
+<div id="setup" hidden>
+ <div class="card"><h2>Еднократна настройка (около 2 минути)</h2>
+ <p>Тази страница е <b>само за Tonchev Auto</b>. Тук отбелязвате кои дни са заети и сайтът сам спира да ги предлага на клиентите.</p>
+ <p>Трябва ви един <b>ключ</b> от GitHub. Правите го веднъж на този телефон.</p>
+ <ol class="st">
+  <li>Натиснете бутона долу „Отвори GitHub“.<small>Ако поиска, влезте с акаунта icotonchev.</small></li>
+  <li>При <b>Repository access</b> изберете <b>Only select repositories</b> и отметнете <b>icotonchev.github.io</b>.<small>Останалото вече е попълнено вместо вас.</small></li>
+  <li>Най-долу натиснете зеления бутон <b>Generate token</b>, после пак <b>Generate token</b>.</li>
+  <li>Натиснете иконката за копиране до дългия код, който започва с <b>github_pat_</b>.</li>
+  <li>Върнете се тук, поставете кода в полето и натиснете <b>Свържи</b>.</li>
+ </ol>
+ <a class="btn g" id="gh" target="_blank" rel="noopener">Отвори GitHub</a>
+ <input id="tk" type="password" placeholder="github_pat_…" autocomplete="off" autocapitalize="off" spellcheck="false">
+ <button class="btn" id="cn" type="button">Свържи</button>
+ <div id="sm"></div>
+ <p class="sm">Ключът се пази само на този телефон. Запишете го и в бележките си, ако смените телефона.</p></div>
+</div>
+
+<div id="main" hidden>
+ <div id="top"></div>
+ <div class="card">
+  <p style="margin-top:0">Докоснете ден, за да го направите <b style="color:var(--red2)">зает</b>. Докоснете го пак, за да е свободен. Накрая натиснете <b>Запази</b>.</p>
+  <div class="seg" role="tablist"><button type="button" data-c="d" aria-selected="true">Детайлинг</button><button type="button" data-c="s" aria-selected="false">Сервиз</button></div>
+  <div id="cals"></div>
+  <div class="lg"><span><i style="background:var(--red)"></i>Зает</span><span><i style="background:var(--sf2);border:1px solid var(--ln)"></i>Свободен</span><span><i style="background:transparent;outline:2px solid #ffd23f"></i>От новата заявка</span></div>
+ </div>
+ <p class="sm">Неделя не се показва на сайта (почивен ден). Миналите дни се изчистват сами.</p>
+ <button class="link" id="lo" type="button">Смени ключа на този телефон</button>
+</div>
+<div id="load" class="sm">Зареждане…</div>
+</div>
+<div class="bar" id="bar" hidden><div class="in"><div id="bm"></div><button class="btn" id="sv" type="button">Запази</button></div></div>
+
+<script>
+(function(){
+var OWNER="icotonchev",REPO="icotonchev.github.io",FILE="zaeti.json",API="https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+FILE;
+var $=function(i){return document.getElementById(i)};
+var MN=["януари","февруари","март","април","май","юни","юли","август","септември","октомври","ноември","декември"];
+var DF=["неделя","понеделник","вторник","сряда","четвъртък","петък","събота"];
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+var TOKEN=ls("tz_tok")||"",SHA=null,data={d:[],s:[]},saved="",cat="d",fresh={};
+function key(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function today(){var d=new Date();d.setHours(12,0,0,0);return d}
+$("gh").href="https://github.com/settings/personal-access-tokens/new?name="+encodeURIComponent("Tonchev zaeti dni")+"&description="+encodeURIComponent("Сайтът: отбелязване на заети дни")+"&target_name="+OWNER+"&expires_in=none&contents=write";
+
+/* от линка в съобщението на клиента: #c=d&d=2026-12-03&n=2 */
+(function(){var h=location.hash.slice(1);if(!h)return;var p={};h.split("&").forEach(function(x){var a=x.split("=");p[a[0]]=decodeURIComponent(a[1]||"")});
+ if(!/^\d{4}-\d\d-\d\d$/.test(p.d||""))return;cat=p.c==="s"?"s":"d";var n=Math.max(1,Math.min(7,parseInt(p.n,10)||1)),d=new Date(p.d+"T12:00:00"),k=0;
+ while(k<n){if(d.getDay()!==0){fresh[key(d)]=1;k++}d=new Date(d.getTime()+864e5)}})();
+
+function clean(o){var t=key(today()),r={d:[],s:[]};["d","s"].forEach(function(c){var seen={};(o&&o[c]||[]).forEach(function(x){x=String(x);var a=x.split("/"),s=new Date(a[0]+"T12:00:00"),e=new Date((a[1]||a[0])+"T12:00:00");if(isNaN(s)||isNaN(e))return;for(var d=s;d<=e;d=new Date(d.getTime()+864e5)){var k=key(d);if(k>=t&&!seen[k]){seen[k]=1;r[c].push(k)}}});r[c].sort()});return r}
+function hdr(){return{"Authorization":"Bearer "+TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}}
+function b64d(s){return decodeURIComponent(escape(atob(s.replace(/\s/g,""))))}
+function b64e(s){return btoa(unescape(encodeURIComponent(s)))}
+function fetchFile(){return fetch(API+"?ref=main&t="+Date.now(),{headers:hdr(),cache:"no-store"}).then(function(r){
+ if(r.status===404){SHA=null;return{d:[],s:[]}}if(r.status===401)throw{code:401};if(!r.ok)throw{code:r.status};
+ return r.json().then(function(j){SHA=j.sha;try{return JSON.parse(b64d(j.content))}catch(e){return{d:[],s:[]}}})})}
+
+function show(id){["setup","main","load"].forEach(function(x){$(x).hidden=x!==id});$("bar").hidden=id!=="main"}
+function note(el,cls,t){$(el).innerHTML="";if(!t)return;var m=document.createElement("div");m.className="msg "+cls;m.textContent=t;$(el).appendChild(m)}
+
+function start(){if(!TOKEN){show("setup");return}show("load");$("load").textContent="Зареждане…";
+ fetchFile().then(function(o){data=clean(o);saved=JSON.stringify(data);
+  var add=Object.keys(fresh);if(add.length){add.forEach(function(k){if(data[cat].indexOf(k)<0)data[cat].push(k)});data[cat].sort();
+   var f=new Date(add[0]+"T12:00:00");note("top","inf","Нова заявка ("+(cat==="d"?"детайлинг":"сервиз")+"): "+DF[f.getDay()]+", "+f.getDate()+" "+MN[f.getMonth()]+(add.length>1?" · "+add.length+" дни":"")+". Дните са маркирани в жълто. Ако сте се разбрали с клиента, натиснете „Запази“.");if(!dirty())note("top","ok","Дните от тази заявка вече са отбелязани като заети.")}
+  show("main");tabs();draw()})
+ .catch(function(e){if(e&&e.code===401){ls("tz_tok",null);TOKEN="";show("setup");note("sm","er","Ключът не работи (може да е изтрит или изтекъл). Направете нов.");return}
+  show("load");$("load").innerHTML="";var m=document.createElement("div");m.className="msg er";m.textContent="Няма връзка с интернет или GitHub. Опитайте пак след малко.";$("load").appendChild(m);var b=document.createElement("button");b.className="btn g";b.textContent="Опитай пак";b.onclick=start;$("load").appendChild(b)})}
+
+$("cn").onclick=function(){var v=$("tk").value.trim();if(!/^(github_pat_|ghp_)/.test(v)){note("sm","er","Кодът трябва да започва с github_pat_. Копирайте го пак.");return}
+ TOKEN=v;$("cn").disabled=true;$("cn").textContent="Проверка…";
+ fetch("https://api.github.com/repos/"+OWNER+"/"+REPO,{headers:hdr()}).then(function(r){$("cn").disabled=false;$("cn").textContent="Свържи";
+  if(r.ok){ls("tz_tok",v);note("sm","","");start()}else{TOKEN="";note("sm","er",r.status===404?"Ключът няма достъп до icotonchev.github.io. При „Repository access“ отметнете това репо.":"Ключът не се прие. Копирайте го пак целия.")}})
+ .catch(function(){$("cn").disabled=false;$("cn").textContent="Свържи";TOKEN="";note("sm","er","Няма интернет. Опитайте пак.")})};
+$("lo").onclick=function(){if(!confirmLike())return;ls("tz_tok",null);TOKEN="";$("tk").value="";show("setup")};
+function confirmLike(){var b=$("lo");if(b.dataset.s){return true}b.dataset.s=1;b.textContent="Натиснете пак, за да смените ключа";setTimeout(function(){delete b.dataset.s;b.textContent="Смени ключа на този телефон"},4000);return false}
+
+function tabs(){[].forEach.call(document.querySelectorAll(".seg button"),function(b){b.setAttribute("aria-selected",String(b.dataset.c===cat));b.onclick=function(){cat=b.dataset.c;tabs();draw()}})}
+function dirty(){return JSON.stringify(data)!==saved}
+function draw(){var box=$("cals");box.innerHTML="";var set={};data[cat].forEach(function(k){set[k]=1});var old={};JSON.parse(saved)[cat].forEach(function(k){old[k]=1});
+ var t=today(),end=new Date(t.getTime()+70*864e5),d=new Date(t.getFullYear(),t.getMonth(),1,12),m=-1,grid;
+ while(d<=end){if(d.getMonth()!==m){m=d.getMonth();var h=document.createElement("div");h.className="mh";h.textContent=MN[m]+" "+d.getFullYear();box.appendChild(h);grid=document.createElement("div");grid.className="cal";["Пн","Вт","Ср","Чт","Пт","Сб","Нд"].forEach(function(x){var s=document.createElement("span");s.className="wh";s.textContent=x;grid.appendChild(s)});box.appendChild(grid);for(var i=0;i<(d.getDay()+6)%7;i++)grid.appendChild(document.createElement("span"))}
+  (function(dd){var k=key(dd),b=document.createElement("button");b.type="button";b.className="d"+(set[k]?" busy":"")+(fresh[k]&&cat===catFresh()?" new":"")+(k===key(t)?" today":"")+(!!set[k]!==!!old[k]?" ch":"");b.textContent=dd.getDate();
+   b.disabled=dd<t&&k!==key(t)||dd.getDay()===0;b.setAttribute("aria-label",DF[dd.getDay()]+" "+dd.getDate()+" "+MN[dd.getMonth()]+(set[k]?", зает":", свободен"));
+   b.onclick=function(){var a=data[cat],i=a.indexOf(k);if(i<0)a.push(k);else a.splice(i,1);a.sort();draw()};grid.appendChild(b)})(d);
+  d=new Date(d.getTime()+864e5)}
+ var n=dirty();$("sv").disabled=!n;$("sv").textContent=n?"Запази":"Всичко е запазено ✓";if(n)note("bm","","")}
+var _cf=null;function catFresh(){if(_cf===null)_cf=cat;return _cf}catFresh();
+
+$("sv").onclick=function(){var b=$("sv");b.disabled=true;b.textContent="Записване…";
+ var mine=data;fetchFile().then(function(o){/* слива с промени от друг телефон */var srv=clean(o),old=JSON.parse(saved);
+  ["d","s"].forEach(function(c){var s={};srv[c].forEach(function(k){s[k]=1});old[c].forEach(function(k){if(mine[c].indexOf(k)<0)delete s[k]});mine[c].forEach(function(k){s[k]=1});mine[c]=Object.keys(s).sort()});
+  var body={message:"Заети дни ("+new Date().toLocaleDateString("bg-BG")+")",content:b64e(JSON.stringify(mine,null,1)+"\n"),branch:"main"};if(SHA)body.sha=SHA;
+  return fetch(API,{method:"PUT",headers:hdr(),body:JSON.stringify(body)})}).then(function(r){
+  if(r.status===409||r.status===422){throw{code:"again"}}if(r.status===403||r.status===404)throw{code:"perm"};if(r.status===401)throw{code:401};if(!r.ok)throw{code:r.status};
+  return r.json().then(function(j){SHA=j.content&&j.content.sha;data=mine;saved=JSON.stringify(data);fresh={};note("top","","");try{history.replaceState(null,"",location.pathname)}catch(e){}draw();note("bm","ok","Запазено! Сайтът ще се обнови до 1–2 минути.")})})
+ .catch(function(e){b.disabled=false;b.textContent="Запази";var t=e&&e.code==="perm"?"Ключът няма право да записва. Направете нов ключ (настройката отгоре) и отметнете репото icotonchev.github.io.":e&&e.code===401?"Ключът не работи. Натиснете „Смени ключа“ и направете нов.":e&&e.code==="again"?"Някой току-що промени дните от друг телефон. Натиснете „Запази“ още веднъж.":"Не се записа. Проверете интернета и натиснете „Запази“ пак.";note("bm","er",t)})};
+window.addEventListener("beforeunload",function(e){if(TOKEN&&dirty()){e.preventDefault();e.returnValue=""}});
+start();
+})();
+</script></body></html>
