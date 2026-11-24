@@ -384,7 +384,7 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <a class="panel" href="#detailing"><img src="full/e46.jpg" alt="" loading="lazy" style="object-position:40% 80%"><div><h2>Детайлинг</h2><p>Полиране, керамика, пране на интериор.</p><span>Вижте услугите</span></div></a>
 <a class="panel" href="#servis"><img src="full/s01.jpg" alt="" loading="lazy"><div><h2>Сервиз</h2><p>Масла, филтри, ремъци, окачване.</p><span>Вижте услугите</span></div></a></div>
 <div class="promos"><a class="promo" href="#diagnoza" style="text-decoration:none">Онлайн диагноза<b>30 секунди</b><small>разберете какво ѝ трябва на колата</small></a><div class="promo">Абонамент интериор<b>70 €</b><small>включена 5% отстъпка</small></div><div class="promo">Керамично покритие<b>5–10 години</b><small>защита на боя и фарове</small></div></div></div></section>
-<section class="bas"><div class="w"><p class="gst">Истински снимки от нашата работа</p><h2>Преди и след</h2><p class="lead">Плъзнете чертата или включете лампата и минете с пръст по снимката, както проверяваме боята в сервиза.</p>
+<section class="bas"><div class="w"><p class="gst">Истински снимки от нашата работа</p><h2>Преди и след</h2><p class="lead">Просто гледайте: снимката сама се сменя от „преди“ на „след“. Искате сами? Докоснете я и плъзнете с пръст.</p>
 <div class="ba" id="ba-home" data-p="0">
 <div class="bat" role="tablist" aria-label="Снимки"><button type="button" aria-selected="true" data-i="0">Полиране на боя</button><button type="button" aria-selected="false" data-i="1">Интериор · Honda</button></div>
 <div class="baf" style="aspect-ratio:3/4" data-a="3/4,4/3" data-s="full/ba1.jpg|full/ba2.jpg,full/bb1.jpg|full/bb2.jpg">
@@ -415,7 +415,7 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <div class="view" id="v-detailing">
 <div class="w sp"><div><h1>Автодетайлинг в Пловдив</h1><p>Пране на интериор, детайлно почистване, полиране на боя и фарове с керамично покритие. Реални резултати, без празни обещания.</p><div class="btns"><a class="btn" href="#rezervacia">Запази час</a><a class="btn ghost" href="tel:+359894737402">Христо: 0894 737 402</a></div></div><img src="full/e46.jpg" alt="Червено BMW E46 след полиране" style="object-position:40% 75%"></div>
 <div class="w"><div class="tr"><div>Професионална техника и препарати<small>за всяка повърхност</small></div><div>Керамично покритие<small>защита от 5 до 10 години</small></div><div>Индивидуален подход<small>към всеки автомобил</small></div></div></div>
-<section class="bas"><div class="w"><p class="gst">Истински снимки от нашата работа</p><h2>Преди и след</h2><p class="lead">Плъзнете чертата или включете лампата и минете с пръст по снимката, както проверяваме боята в сервиза.</p>
+<section class="bas"><div class="w"><p class="gst">Истински снимки от нашата работа</p><h2>Преди и след</h2><p class="lead">Просто гледайте: снимката сама се сменя от „преди“ на „след“. Искате сами? Докоснете я и плъзнете с пръст.</p>
 <div class="ba" id="ba-det" data-p="0">
 <div class="bat" role="tablist" aria-label="Снимки"><button type="button" aria-selected="true" data-i="0">Полиране на боя</button><button type="button" aria-selected="false" data-i="1">Интериор · Honda</button></div>
 <div class="baf" style="aspect-ratio:3/4" data-a="3/4,4/3" data-s="full/ba1.jpg|full/ba2.jpg,full/bb1.jpg|full/bb2.jpg">
@@ -779,22 +779,34 @@ function drawPlan(){var L=$("pl");L.innerHTML="";var items=ZO.filter(function(z)
  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden)close()});
 })();
 (function(){var AL=[["Боя преди полиране: холограми и драскотини","Боя след полиране"],["Интериор на Honda преди почистване","Интериор на Honda след почистване"]];
-[].forEach.call(document.querySelectorAll(".ba"),function(B){var F=B.querySelector(".baf"),b0=F.querySelector(".b0"),b1=F.querySelector(".b1"),H=F.querySelector(".bh"),L=F.querySelector(".blamp"),rg=F.querySelector(".br"),S=F.dataset.s.split(","),A=F.dataset.a.split(","),pos=50,mode="s",lx=.5,ly=.5,auto=true,raf=0,t0=0,seen=false,drag=false;
- function paint(){if(mode==="s"){b1.style.clipPath="inset(0 0 0 "+pos+"%)";b1.style.webkitClipPath=b1.style.clipPath;H.style.left=pos+"%";rg.value=Math.round(pos)}
-  else{var r=Math.round(F.clientWidth*.24);var c="circle("+r+"px at "+(lx*100).toFixed(2)+"% "+(ly*100).toFixed(2)+"%)";b1.style.clipPath=c;b1.style.webkitClipPath=c;L.style.left=(lx*100)+"%";L.style.top=(ly*100)+"%";L.style.width=L.style.height=(2*r)+"px"}}
+var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+[].forEach.call(document.querySelectorAll(".ba"),function(B){var F=B.querySelector(".baf"),b0=F.querySelector(".b0"),b1=F.querySelector(".b1"),H=F.querySelector(".bh"),L=F.querySelector(".blamp"),rg=F.querySelector(".br"),S=F.dataset.s.split(","),A=F.dataset.a.split(","),pos=50,mode="s",lx=.5,ly=.5,pair=0,vis=false,drag=false,hold=0,ph=0,last=0,raf=0;
+ /* сцени: плъзгач 7 с, лампа 7 с, после следващата снимка */
+ var SC=7000;
+ function paint(){if(mode==="s"){var c="inset(0 0 0 "+pos.toFixed(2)+"%)";b1.style.clipPath=c;b1.style.webkitClipPath=c;H.style.left=pos+"%";rg.value=Math.round(pos)}
+  else{var r=Math.round(F.clientWidth*.24),c2="circle("+r+"px at "+(lx*100).toFixed(2)+"% "+(ly*100).toFixed(2)+"%)";b1.style.clipPath=c2;b1.style.webkitClipPath=c2;L.style.left=(lx*100)+"%";L.style.top=(ly*100)+"%";L.style.width=L.style.height=(2*r)+"px"}}
  function at(e){var R=F.getBoundingClientRect();return[Math.max(0,Math.min(1,(e.clientX-R.left)/R.width)),Math.max(0,Math.min(1,(e.clientY-R.top)/R.height))]}
- function setMode(m){mode=m;B.dataset.m=m;F.style.touchAction=m==="l"?"none":"pan-y";[].forEach.call(B.querySelectorAll(".bam button"),function(x){x.classList.toggle("on",x.dataset.m===m)});if(m==="l"){auto=true;t0=performance.now();loop()}paint()}
- function loop(){cancelAnimationFrame(raf);if(mode!=="l"||!auto)return;var k=(performance.now()-t0)/1000;lx=.5+.28*Math.sin(k*.9);ly=.5+.26*Math.sin(k*1.3+1);paint();raf=requestAnimationFrame(loop)}
- F.addEventListener("pointerdown",function(e){drag=true;auto=false;try{F.setPointerCapture(e.pointerId)}catch(_){}var p=at(e);if(mode==="s")pos=p[0]*100;else{lx=p[0];ly=p[1]}paint()});
- F.addEventListener("pointermove",function(e){if(mode==="l"&&e.pointerType==="mouse"){auto=false;var q=at(e);lx=q[0];ly=q[1];paint();return}if(!drag)return;var p=at(e);if(mode==="s")pos=p[0]*100;else{lx=p[0];ly=p[1]}paint()});
- ["pointerup","pointercancel"].forEach(function(n){F.addEventListener(n,function(){drag=false})});
- F.addEventListener("pointerleave",function(e){if(mode==="l"&&e.pointerType==="mouse"){auto=true;t0=performance.now();loop()}});
- rg.addEventListener("input",function(){if(mode!=="s")setMode("s");pos=+rg.value;paint()});
- [].forEach.call(B.querySelectorAll(".bam button"),function(x){x.onclick=function(){setMode(x.dataset.m)}});
- [].forEach.call(B.querySelectorAll(".bat button"),function(x){x.onclick=function(){var i=+x.dataset.i,s=S[i].split("|");[].forEach.call(B.querySelectorAll(".bat button"),function(y){y.setAttribute("aria-selected",String(y===x))});F.style.aspectRatio=A[i];b0.src=s[0];b1.src=s[1];b0.alt=AL[i][0];b1.alt=AL[i][1];B.dataset.p=i;pos=50;paint();if(mode==="s")intro()}});
- function intro(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var st=performance.now();(function f(n){var k=Math.min(1,(n-st)/1800);if(drag||mode!=="s")return;pos=50+32*Math.sin(k*Math.PI*2)*(1-k*.3)*(k<1?1:0);paint();if(k<1)requestAnimationFrame(f)})(st)}
+ function setMode(m){mode=m;B.dataset.m=m;F.style.touchAction=m==="l"?"none":"pan-y";[].forEach.call(B.querySelectorAll(".bam button"),function(x){x.classList.toggle("on",x.dataset.m===m)});paint()}
+ function setPair(i){pair=i;var s=S[i].split("|");[].forEach.call(B.querySelectorAll(".bat button"),function(y){y.setAttribute("aria-selected",String(+y.dataset.i===i))});F.style.aspectRatio=A[i];b0.src=s[0];b1.src=s[1];b0.alt=AL[i][0];b1.alt=AL[i][1];B.dataset.p=i;paint()}
+ function user(){hold=performance.now()+8000}/* след докосване спира за 8 с, после продължава само */
+ function tick(now){raf=0;if(!vis||RM)return;var dt=last?Math.min(64,now-last):16;last=now;
+  if(!drag&&now>hold){ph+=dt;var k=ph/1000;
+   if(mode==="s"){pos=50-38*Math.sin(k*2*Math.PI/3.5);if(ph>SC){ph=0;setMode("l")}}
+   else{lx=.5+.3*Math.sin(k*.95);ly=.5+.28*Math.sin(k*1.35+1);if(ph>SC){ph=0;setPair((pair+1)%S.length);setMode("s")}}
+   paint()}
+  raf=requestAnimationFrame(tick)}
+ function run(){if(!raf&&vis&&!RM){last=0;raf=requestAnimationFrame(tick)}}
+ F.addEventListener("pointerdown",function(e){drag=true;user();try{F.setPointerCapture(e.pointerId)}catch(_){}var p=at(e);if(mode==="s")pos=p[0]*100;else{lx=p[0];ly=p[1]}paint()});
+ F.addEventListener("pointermove",function(e){if(mode==="l"&&e.pointerType==="mouse"){user();var q=at(e);lx=q[0];ly=q[1];paint();return}if(!drag)return;user();var p=at(e);if(mode==="s")pos=p[0]*100;else{lx=p[0];ly=p[1]}paint()});
+ ["pointerup","pointercancel"].forEach(function(n){F.addEventListener(n,function(){drag=false;user()})});
+ rg.addEventListener("input",function(){user();if(mode!=="s")setMode("s");pos=+rg.value;paint()});
+ [].forEach.call(B.querySelectorAll(".bam button"),function(x){x.onclick=function(){user();ph=0;setMode(x.dataset.m)}});
+ [].forEach.call(B.querySelectorAll(".bat button"),function(x){x.onclick=function(){user();ph=0;pos=50;setPair(+x.dataset.i)}});
  window.addEventListener("resize",paint);setMode("s");
- if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting&&!seen&&F.clientWidth){seen=true;setTimeout(intro,300)}})},{threshold:.5});io.observe(F)}});
+ /* предварително зареждане на втората двойка, за да няма бяло при смяна */
+ F.addEventListener("load",function(){},true);
+ if("IntersectionObserver"in window){new IntersectionObserver(function(es){es.forEach(function(en){vis=en.isIntersecting;if(vis){S.forEach(function(x){x.split("|").forEach(function(u){var im=new Image();im.src=u})});run()}})},{threshold:.25}).observe(F)}else{vis=true;run()}
+ document.addEventListener("visibilitychange",function(){if(document.hidden)vis=false;else{var R=F.getBoundingClientRect();vis=R.bottom>0&&R.top<innerHeight;run()}})});
 })();
 
 (function(){var R=matchMedia("(prefers-reduced-motion: reduce)").matches;qa("[data-lamp]").forEach(function(L){var last=0,vis=false,t0=performance.now(),tx=.55,ty=.5,cx=.55,cy=.5,game=L.hasAttribute("data-game"),found=0;
