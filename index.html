@@ -352,6 +352,23 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 .qq p{margin:0;padding:0 16px 16px;color:var(--mu)}
 .road{max-width:820px;margin:34px 0 0}.road h2{font-size:22px;margin:0 0 6px}
 .mapw{border-radius:18px;overflow:hidden;border:1px solid var(--ln);height:260px;background:var(--sf);margin-bottom:12px}.mapw iframe{border:0;width:100%;height:100%;display:block;filter:invert(.9) hue-rotate(180deg) saturate(.6)}
+.bas .lead{margin-bottom:18px}
+.ba{max-width:760px}
+.bat{display:inline-flex;gap:6px;background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:5px;margin:0 0 12px;flex-wrap:wrap}
+.bat button{border:0;background:transparent;color:var(--mu);font:600 14px Onest,system-ui,sans-serif;padding:10px 14px;border-radius:10px;cursor:pointer}.bat button[aria-selected=true]{background:var(--red);color:#fff}
+.baf{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--ln);background:#000;user-select:none;-webkit-user-select:none;cursor:ew-resize;max-height:78vh;margin:0 auto;max-width:100%}
+.ba[data-p="0"] .baf{width:min(100%,calc(78vh * .75))}
+.ba[data-m=l] .baf{cursor:none}
+.baf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.bl{position:absolute;top:12px;z-index:3;font:700 11px/1 Onest,system-ui,sans-serif;letter-spacing:.14em;padding:7px 10px;border-radius:8px;background:rgba(0,0,0,.62);color:#fff;backdrop-filter:blur(6px)}.bl.l{left:12px}.bl.r{right:12px;background:var(--red)}
+.bh{position:absolute;top:0;bottom:0;width:0;z-index:2;pointer-events:none}.bh::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:#fff;box-shadow:0 0 18px rgba(0,0,0,.6)}
+.bh i{position:absolute;top:50%;left:0;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:var(--red);border:3px solid #fff;box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.bh i::before,.bh i::after{content:"";position:absolute;top:50%;width:0;height:0;border:7px solid transparent;margin-top:-7px}.bh i::before{left:5px;border-right-color:#fff}.bh i::after{right:5px;border-left-color:#fff}
+.blamp{display:none;position:absolute;z-index:2;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.85),0 0 30px 6px rgba(255,255,255,.25),inset 0 0 40px rgba(255,255,255,.12)}
+.ba[data-m=l] .blamp{display:block}.ba[data-m=l] .bh{display:none}
+.br{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.bam{display:flex;gap:8px;margin:12px 0 0}.bam button{flex:1;max-width:200px;min-height:46px;border-radius:12px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);font:600 15px Onest,system-ui,sans-serif;cursor:pointer}.bam button.on{border-color:var(--red);background:rgba(228,24,27,.14)}
+.baf{margin:0}
 </style></head><body>
 <header class="top"><div class="w bar">
 <a class="logo" href="#nachalo" aria-label="Tonchev Auto – начало"><img src="icons/logo.png" alt="Tonchev Auto"></a>
@@ -367,7 +384,16 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <a class="panel" href="#detailing"><img src="full/e46.jpg" alt="" loading="lazy" style="object-position:40% 80%"><div><h2>Детайлинг</h2><p>Полиране, керамика, пране на интериор.</p><span>Вижте услугите</span></div></a>
 <a class="panel" href="#servis"><img src="full/s01.jpg" alt="" loading="lazy"><div><h2>Сервиз</h2><p>Масла, филтри, ремъци, окачване.</p><span>Вижте услугите</span></div></a></div>
 <div class="promos"><a class="promo" href="#diagnoza" style="text-decoration:none">Онлайн диагноза<b>30 секунди</b><small>разберете какво ѝ трябва на колата</small></a><div class="promo">Абонамент интериор<b>70 €</b><small>включена 5% отстъпка</small></div><div class="promo">Керамично покритие<b>5–10 години</b><small>защита на боя и фарове</small></div></div></div></section>
-<section class="g0" id="g0"><div class="w"><div class="gcard"><div><h2>Станете детейлър за 30 секунди.</h2><p>Две мини игри: огледайте лака с лампа като професионалист и после го полирайте с пръст.</p></div><div class="btns"><button class="btn" type="button" id="gplay">Играй</button><button class="btn ghost" type="button" id="gskip">Не, благодаря</button></div></div></div></section><section class="insp" id="g1" hidden><div class="w"><div class="ig">
+<section class="bas"><div class="w"><p class="gst">Истински снимки от нашата работа</p><h2>Преди и след</h2><p class="lead">Плъзнете чертата или включете лампата и минете с пръст по снимката, както проверяваме боята в сервиза.</p>
+<div class="ba" id="ba-home" data-p="0">
+<div class="bat" role="tablist" aria-label="Снимки"><button type="button" aria-selected="true" data-i="0">Полиране на боя</button><button type="button" aria-selected="false" data-i="1">Интериор · Honda</button></div>
+<div class="baf" style="aspect-ratio:3/4" data-a="3/4,4/3" data-s="full/ba1.jpg|full/ba2.jpg,full/bb1.jpg|full/bb2.jpg">
+<img class="b0" src="full/ba1.jpg" alt="Боя преди полиране: холограми и драскотини" loading="lazy" draggable="false"><img class="b1" src="full/ba2.jpg" alt="Боя след полиране" loading="lazy" draggable="false">
+<span class="bl l">ПРЕДИ</span><span class="bl r">СЛЕД</span><div class="bh" aria-hidden="true"><i></i></div><div class="blamp" aria-hidden="true"></div>
+<input class="br" type="range" min="0" max="100" value="50" aria-label="Преди или след">
+</div>
+<div class="bam"><button type="button" class="on" data-m="s">↔ Плъзни</button><button type="button" data-m="l">🔦 Лампа</button></div>
+</div></div></section><section class="g0" id="g0"><div class="w"><div class="gcard"><div><h2>Станете детейлър за 30 секунди.</h2><p>Две мини игри: огледайте лака с лампа като професионалист и после го полирайте с пръст.</p></div><div class="btns"><button class="btn" type="button" id="gplay">Играй</button><button class="btn ghost" type="button" id="gskip">Не, благодаря</button></div></div></div></section><section class="insp" id="g1" hidden><div class="w"><div class="ig">
 <div class="it"><h2>Преместете лампата.</h2><p>Така изглежда лакът под инспекционна лампа: холограми и микродраскотини, които на дневна светлина не забелязвате. Машинното полиране ги премахва, а керамиката пази резултата от 5 до 10 години.</p>
 <p class="gst" id="gcount">Игра 1 от 2: намерете с лампата 3 скрити дефекта · <b>0/3</b></p><ol class="ip"><li><b>Инспекция с лампа</b><span>Виждаме всеки дефект, преди да започнем.</span></li><li><b>Многостепенно полиране</b><span>Корекция на лака стъпка по стъпка.</span></li><li><b>Керамична защита</b><span>Блясък и защита от 5 до 10 години.</span></li></ol>
 <div class="btns"><a class="btn" href="#rezervacia">Запази полиране</a><a class="btn ghost" href="#ceni">Цени</a></div></div>
@@ -389,7 +415,16 @@ footer{padding:28px 0 40px;color:var(--mu);font-size:14px;border-top:1px solid v
 <div class="view" id="v-detailing">
 <div class="w sp"><div><h1>Автодетайлинг в Пловдив</h1><p>Пране на интериор, детайлно почистване, полиране на боя и фарове с керамично покритие. Реални резултати, без празни обещания.</p><div class="btns"><a class="btn" href="#rezervacia">Запази час</a><a class="btn ghost" href="tel:+359894737402">Христо: 0894 737 402</a></div></div><img src="full/e46.jpg" alt="Червено BMW E46 след полиране" style="object-position:40% 75%"></div>
 <div class="w"><div class="tr"><div>Професионална техника и препарати<small>за всяка повърхност</small></div><div>Керамично покритие<small>защита от 5 до 10 години</small></div><div>Индивидуален подход<small>към всеки автомобил</small></div></div></div>
-<section><div class="w"><h2>Ценоразпис</h2><p class="lead">Цената зависи от автомобила и състоянието му. Уговаряме я на място след оглед.</p><div class="pg" id="ceni">
+<section class="bas"><div class="w"><p class="gst">Истински снимки от нашата работа</p><h2>Преди и след</h2><p class="lead">Плъзнете чертата или включете лампата и минете с пръст по снимката, както проверяваме боята в сервиза.</p>
+<div class="ba" id="ba-det" data-p="0">
+<div class="bat" role="tablist" aria-label="Снимки"><button type="button" aria-selected="true" data-i="0">Полиране на боя</button><button type="button" aria-selected="false" data-i="1">Интериор · Honda</button></div>
+<div class="baf" style="aspect-ratio:3/4" data-a="3/4,4/3" data-s="full/ba1.jpg|full/ba2.jpg,full/bb1.jpg|full/bb2.jpg">
+<img class="b0" src="full/ba1.jpg" alt="Боя преди полиране: холограми и драскотини" loading="lazy" draggable="false"><img class="b1" src="full/ba2.jpg" alt="Боя след полиране" loading="lazy" draggable="false">
+<span class="bl l">ПРЕДИ</span><span class="bl r">СЛЕД</span><div class="bh" aria-hidden="true"><i></i></div><div class="blamp" aria-hidden="true"></div>
+<input class="br" type="range" min="0" max="100" value="50" aria-label="Преди или след">
+</div>
+<div class="bam"><button type="button" class="on" data-m="s">↔ Плъзни</button><button type="button" data-m="l">🔦 Лампа</button></div>
+</div></div></section><section><div class="w"><h2>Ценоразпис</h2><p class="lead">Цената зависи от автомобила и състоянието му. Уговаряме я на място след оглед.</p><div class="pg" id="ceni">
 <div class="pc"><img class="pci" src="th/d17.jpg" alt="Почистване на интериор" loading="lazy"><h3>Почистване на интериор</h3><p>Ръчна работа с професионални препарати.</p><ul class="pk"><li><h4>Освежаване</h4><b>след оглед</b><p>Прахосмукуване, детайлно почистване на интериор, стъкла, авто парфюм (10–40 дни).</p><em class="wt">⏱ 1–2 ч работа</em></li><li><h4>Комплексно</h4><b>след оглед</b><p>Пране на мокет и седалки, дезинфекция с парочистачка, детайлно почистване, стъкла, парфюм, подхранване на кожа и пластмаси (по желание).</p><em class="wt">⏱ 4–6 ч работа</em></li><li><h4>Премиум</h4><b>след оглед</b><p>Пране на багажник, двигателен отсек, подхранване на кожа, пластмаси и уплътнения, стелки и стъкла, дезинфекция, детайлно почистване, парфюм.</p><em class="wt">⏱ 6–8 ч работа</em></li></ul></div>
 <div class="pc"><img class="pci" src="th/d02.jpg" alt="Полиране на боя" loading="lazy"><h3>Полиране на боя</h3><p>Корекция на лака, блясък и защита.</p><ul class="pk"><li><h4>Освежаване</h4><b>след оглед</b><p>Корекция на лак, премахване на леки драскотини, възстановяване на блясъка. За поддържани автомобили.</p><em class="wt">⏱ 4–6 ч работа</em></li><li><h4>Блясък</h4><b>след оглед</b><p>Средна корекция, премахване на драскотини, дълбочина на цвета. За средно износени автомобили.</p><em class="wt">⏱ 8–12 ч (с керамика 10–15 ч) работа</em></li><li><h4>Премиум</h4><b>след оглед</b><p>Безплатно външно измиване, дълбока корекция, максимално премахване на драскотини, обезмасляване и керамично покритие със защита от 5 до 10 години.</p><em class="wt">⏱ 16–20 ч работа</em></li></ul></div>
 <div class="pc"><img class="pci" src="th/d05.jpg" alt="Полиране на фарове" loading="lazy"><h3>Полиране на фарове</h3><p>Прозрачност и защита срещу пожълтяване.</p><ul class="pk"><li><h4>Освежаване</h4><b>след оглед</b><p>Почистване, лека корекция, премахване на пожълтяване, защитна паста. Защита 6–12 месеца.</p><em class="wt">⏱ 30–45 мин работа</em></li><li><h4>Блясък</h4><b>след оглед</b><p>Дълбока корекция, премахване на надраскотини, максимална прозрачност. Керамична защита от 5 до 10 години.</p><em class="wt">⏱ 1–1,5 ч (с керамика 1,5–2 ч) работа</em></li><li><h4>Премиум</h4><b>след оглед</b><p>Многостепенно полиране, максимално премахване на дефекти, възстановяване на фабричния вид, керамика или дълготрайна защита от 5 до 10 години.</p><em class="wt">⏱ 2–3 ч работа</em></li></ul></div>
@@ -742,6 +777,24 @@ function drawPlan(){var L=$("pl");L.innerHTML="";var items=ZO.filter(function(z)
  qa("#abar [data-sh]").forEach(function(b){b.onclick=function(){open(b.dataset.sh)}});
  $("shX").onclick=close;$("shb").onclick=close;$("shD").addEventListener("click",function(){setTimeout(close,300)});$("shS").addEventListener("click",function(){setTimeout(close,300)});
  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden)close()});
+})();
+(function(){var AL=[["Боя преди полиране: холограми и драскотини","Боя след полиране"],["Интериор на Honda преди почистване","Интериор на Honda след почистване"]];
+[].forEach.call(document.querySelectorAll(".ba"),function(B){var F=B.querySelector(".baf"),b0=F.querySelector(".b0"),b1=F.querySelector(".b1"),H=F.querySelector(".bh"),L=F.querySelector(".blamp"),rg=F.querySelector(".br"),S=F.dataset.s.split(","),A=F.dataset.a.split(","),pos=50,mode="s",lx=.5,ly=.5,auto=true,raf=0,t0=0,seen=false,drag=false;
+ function paint(){if(mode==="s"){b1.style.clipPath="inset(0 0 0 "+pos+"%)";b1.style.webkitClipPath=b1.style.clipPath;H.style.left=pos+"%";rg.value=Math.round(pos)}
+  else{var r=Math.round(F.clientWidth*.24);var c="circle("+r+"px at "+(lx*100).toFixed(2)+"% "+(ly*100).toFixed(2)+"%)";b1.style.clipPath=c;b1.style.webkitClipPath=c;L.style.left=(lx*100)+"%";L.style.top=(ly*100)+"%";L.style.width=L.style.height=(2*r)+"px"}}
+ function at(e){var R=F.getBoundingClientRect();return[Math.max(0,Math.min(1,(e.clientX-R.left)/R.width)),Math.max(0,Math.min(1,(e.clientY-R.top)/R.height))]}
+ function setMode(m){mode=m;B.dataset.m=m;F.style.touchAction=m==="l"?"none":"pan-y";[].forEach.call(B.querySelectorAll(".bam button"),function(x){x.classList.toggle("on",x.dataset.m===m)});if(m==="l"){auto=true;t0=performance.now();loop()}paint()}
+ function loop(){cancelAnimationFrame(raf);if(mode!=="l"||!auto)return;var k=(performance.now()-t0)/1000;lx=.5+.28*Math.sin(k*.9);ly=.5+.26*Math.sin(k*1.3+1);paint();raf=requestAnimationFrame(loop)}
+ F.addEventListener("pointerdown",function(e){drag=true;auto=false;try{F.setPointerCapture(e.pointerId)}catch(_){}var p=at(e);if(mode==="s")pos=p[0]*100;else{lx=p[0];ly=p[1]}paint()});
+ F.addEventListener("pointermove",function(e){if(mode==="l"&&e.pointerType==="mouse"){auto=false;var q=at(e);lx=q[0];ly=q[1];paint();return}if(!drag)return;var p=at(e);if(mode==="s")pos=p[0]*100;else{lx=p[0];ly=p[1]}paint()});
+ ["pointerup","pointercancel"].forEach(function(n){F.addEventListener(n,function(){drag=false})});
+ F.addEventListener("pointerleave",function(e){if(mode==="l"&&e.pointerType==="mouse"){auto=true;t0=performance.now();loop()}});
+ rg.addEventListener("input",function(){if(mode!=="s")setMode("s");pos=+rg.value;paint()});
+ [].forEach.call(B.querySelectorAll(".bam button"),function(x){x.onclick=function(){setMode(x.dataset.m)}});
+ [].forEach.call(B.querySelectorAll(".bat button"),function(x){x.onclick=function(){var i=+x.dataset.i,s=S[i].split("|");[].forEach.call(B.querySelectorAll(".bat button"),function(y){y.setAttribute("aria-selected",String(y===x))});F.style.aspectRatio=A[i];b0.src=s[0];b1.src=s[1];b0.alt=AL[i][0];b1.alt=AL[i][1];B.dataset.p=i;pos=50;paint();if(mode==="s")intro()}});
+ function intro(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var st=performance.now();(function f(n){var k=Math.min(1,(n-st)/1800);if(drag||mode!=="s")return;pos=50+32*Math.sin(k*Math.PI*2)*(1-k*.3)*(k<1?1:0);paint();if(k<1)requestAnimationFrame(f)})(st)}
+ window.addEventListener("resize",paint);setMode("s");
+ if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting&&!seen&&F.clientWidth){seen=true;setTimeout(intro,300)}})},{threshold:.5});io.observe(F)}});
 })();
 
 (function(){var R=matchMedia("(prefers-reduced-motion: reduce)").matches;qa("[data-lamp]").forEach(function(L){var last=0,vis=false,t0=performance.now(),tx=.55,ty=.5,cx=.55,cy=.5,game=L.hasAttribute("data-game"),found=0;
