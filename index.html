@@ -695,6 +695,7 @@ function showView(v){curV=v;qa(".view").forEach(function(x){x.classList.toggle("
  setTimeout(scanV,30)}
 function route(){var h="";try{h=decodeURIComponent(location.hash.slice(1))}catch(e){}
  if(h.indexOf("z=")===0&&typeof fromQR==="function"&&fromQR(location.hash.slice(3)))return;
+ if(h==="farove"){try{setCat("d");st.dsel={2:1};st.dsels.d=st.dsel;drawOpts();dsync();var nt=$("nt");if(nt&&!nt.value)nt.value="Средно пожълтени фарове. От рекламата: −8% отстъпка при резервация през сайта.";upd();drawDays();showView("rezervacia");st.init=1;go(2);var e2=$("e2");if(e2)e2.textContent="Избрахме ви „Полиране на фарове“. Сега изберете ден.";e2&&(e2.style.color="#9fe0b8");setTimeout(function(){var f=document.querySelector("#rezervacia .bm");if(f)f.scrollIntoView({block:"start"})},80)}catch(e){showView("rezervacia")}return}
  if(VW.indexOf(h)>-1){showView(h);window.scrollTo(0,0);return}
  if(!document.querySelector(".view.on"))showView("nachalo");
  if(h){var e=document.getElementById(h);if(e){var v=e.closest(".view");if(v&&!v.classList.contains("on"))showView(v.id.slice(2));requestAnimationFrame(function(){e.scrollIntoView()})}}}
@@ -767,7 +768,7 @@ function jump(n){if(n>=2&&!st.svc){go(1);$("e1").textContent="Първо изб�
  else if(n===3){setTimeout(function(){var i=$("nm");if(i&&!i.value)try{i.focus({preventScroll:true})}catch(e){}},500)}}
 qa("[data-j]").forEach(function(b){b.addEventListener("click",function(){st.init=1;jump(+b.dataset.j)})});
 $("n1").onclick=function(){st.init=1;if(!st.svc){$("e1").textContent="Изберете услуга, за да продължите.";return}drawDays();go(2)};
-$("n2").onclick=function(){st.init=1;if(!st.date){$("e2").textContent="Изберете ден.";return}go(3)};
+$("n2").onclick=function(){st.init=1;if(!st.date){$("e2").style.color="";$("e2").textContent="Изберете ден.";return}go(3)};
 qa("[data-b]").forEach(function(b){b.onclick=function(){st.init=1;go(+b.dataset.b)}});
 var MOB=(window.matchMedia&&matchMedia("(pointer:coarse)").matches)||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")+(st.date?"\n\nЗа Tonchev (отбележи деня): https://icotonchev.github.io/zaeti.html#c="+st.cat+"&d="+key(st.date)+"&n="+st.need:"")}
