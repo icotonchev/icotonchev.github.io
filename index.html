@@ -393,6 +393,19 @@ a.promo{color:#fff}
 .sea>i{font-style:normal;font-size:30px}.sea>div{flex:1;min-width:200px}.sea b{display:block;font-size:17px}.sea span{display:block;color:var(--mu);font-size:14.5px;margin-top:2px}
 .sx{position:absolute;top:8px;right:8px;width:34px;height:34px;border-radius:50%;border:0;background:transparent;color:var(--mu);font-size:22px;cursor:pointer}
 .bahint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:3;font:600 12px Onest,sans-serif;background:rgba(0,0,0,.6);color:#fff;padding:7px 12px;border-radius:999px;pointer-events:none;transition:opacity .4s;white-space:nowrap}.ba.touched .bahint{opacity:0}
+.rain{border-top:1px solid var(--ln);background:radial-gradient(120% 80% at 80% 0%,rgba(60,90,160,.10),transparent 60%)}
+.rg{display:grid;gap:24px;align-items:center}@media(min-width:900px){.rg{grid-template-columns:.9fr 1.1fr}}
+.rl{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px}.rl li{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:12px 14px}.rl b{display:block}.rl span{color:var(--mu);font-size:14.5px}
+.rl li:last-child{border-color:rgba(90,140,255,.4)}
+.rg .btns{display:flex;flex-wrap:wrap;gap:10px}
+.rbox{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;border:1px solid var(--ln);background:#05060a;touch-action:manipulation;cursor:pointer;user-select:none;-webkit-user-select:none}
+@media(min-width:900px){.rbox{aspect-ratio:1/1}}
+.rbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.9);pointer-events:none}
+.rbox canvas{position:absolute;inset:0;width:100%;height:100%}
+.rmid{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:rgba(255,255,255,.7);box-shadow:0 0 12px rgba(0,0,0,.6)}
+.rlab{position:absolute;top:12px;z-index:2;font:700 11px/1 Onest,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:8px;color:#fff;background:rgba(0,0,0,.6)}.rlab.l{left:12px}.rlab.r{right:12px;background:#2f6bff}
+.rhint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font:600 12px Onest,sans-serif;background:rgba(0,0,0,.6);color:#fff;padding:7px 12px;border-radius:999px;white-space:nowrap;transition:opacity .4s;pointer-events:none}.rbox.used .rhint{opacity:0}
+.rsr{position:absolute;inset:0}
 </style></head><body>
 <header class="top"><div class="w bar">
 <a class="logo" href="#nachalo" aria-label="Tonchev Auto – начало"><img src="icons/logo.png" alt="Tonchev Auto"></a>
@@ -456,11 +469,14 @@ a.promo{color:#fff}
 <div class="pc"><img class="pci" src="th/d05.jpg" alt="Полиране на фарове" loading="lazy"><h3>Полиране на фарове</h3><p>Прозрачност и защита срещу пожълтяване.</p><ul class="pk"><li><h4>Освежаване</h4><b>след оглед</b><p>Почистване, лека корекция, премахване на пожълтяване, защитна паста. Защита 6–12 месеца.</p><em class="wt">⏱ 30–45 мин работа</em></li><li><h4>Блясък</h4><b>след оглед</b><p>Дълбока корекция, премахване на надраскотини, максимална прозрачност. Керамична защита от 5 до 10 години.</p><em class="wt">⏱ 1–1,5 ч (с керамика 1,5–2 ч) работа</em></li><li><h4>Премиум</h4><b>след оглед</b><p>Многостепенно полиране, максимално премахване на дефекти, възстановяване на фабричния вид, керамика или дълготрайна защита от 5 до 10 години.</p><em class="wt">⏱ 2–3 ч работа</em></li></ul></div>
 <div class="pc"><img class="pci" src="th/d16.jpg" alt="Абонамент „Поддръжка интериор“" loading="lazy"><h3>Абонамент „Поддръжка интериор“</h3><p>Редовна грижа за интериора. <a href="#abonament">Как работи →</a></p><ul class="pk"><li><h4>Месечен абонамент</h4><b>70 €<small>на месец</small></b><p>Детайлно почистване на интериор, стъкла, стелки, прахосмукуване, багажник и авто парфюм (10–40 дни). Включена 5% отстъпка.</p><em class="wt">⏱ 1–2 ч работа</em></li></ul></div></div>
 <p class="note">Цените за детайлинг зависят от размера и състоянието на колата и се уговарят на място след оглед. Плащане в брой. Времето за работа е ориентировъчно и зависи от размера и състоянието на колата. Не сте сигурни какво ви трябва? <a href="#diagnoza">Онлайн диагноза</a></p></div></section>
-<section class="insp"><div class="w"><div class="ig">
-<div class="it"><h2>Преместете лампата.</h2><p>Така изглежда лакът под инспекционна лампа: холограми и микродраскотини, които на дневна светлина не забелязвате. Машинното полиране ги премахва, а керамиката пази резултата от 5 до 10 години.</p>
-<ol class="ip"><li><b>Инспекция с лампа</b><span>Виждаме всеки дефект, преди да започнем.</span></li><li><b>Многостепенно полиране</b><span>Корекция на лака стъпка по стъпка.</span></li><li><b>Керамична защита</b><span>Блясък и защита от 5 до 10 години.</span></li></ol>
-<div class="btns"><a class="btn" href="#rezervacia">Запази полиране</a><a class="btn ghost" href="#ceni">Цени</a></div></div>
-<div class="lamp" data-lamp role="img" aria-label="Лак под инспекционна лампа: видими холограми и микродраскотини"><img class="l0" src="full/d26.jpg" alt="" loading="lazy"><img class="l1" src="full/d26.jpg" alt="" loading="lazy"><span class="lh">Плъзнете, за да огледате лака</span></div>
+<section class="rain" id="dazhd"><div class="w"><div class="rg">
+<div class="rt"><p class="gst">Тест с дъжд</p><h2>Вижте какво прави керамиката.</h2><p class="lead">Една и съща боя, един и същ дъжд. Отляво е без защита, отдясно е с керамично покритие. Гледайте как се държи водата.</p>
+<ul class="rl"><li><b>Без керамика</b><span>Водата се разлива на петна, стои по боята и оставя следи и мръсотия.</span></li><li><b>С керамика</b><span>Водата става на кръгли капчици и се оттича сама, заедно с праха.</span></li></ul>
+<div class="btns"><a class="btn" href="#rezervacia">Запази керамика</a><a class="btn ghost" href="#keramika">Какво е керамика?</a></div></div>
+<div class="rbox"><img src="full/ba2.jpg" alt="" loading="lazy" draggable="false"><canvas aria-hidden="true"></canvas>
+<span class="rlab l">Без керамика</span><span class="rlab r">С керамика</span><div class="rmid" aria-hidden="true"></div>
+<span class="rhint">👆 Докоснете, за да завали още</span>
+<div class="rsr" role="img" aria-label="Анимация: дъжд по боя без керамика и с керамика"></div></div>
 </div></div></section>
 <section style="padding-bottom:0"><div class="w"><div class="cta" style="margin-top:0"><p>Какво прави керамиката и защо полиране? Вижте в „Информация“.</p><a class="btn ghost" href="#informacia">Информация</a></div></div></section><section class="band"><div class="w"><h2>Как работим</h2><ol class="st"><li><b>Запазвате час</b><span>Онлайн или по телефона.</span></li><li><b>Оглед и цена</b><span>Уточняваме обхвата преди да започнем.</span></li><li><b>Обработка</b><span>Получавате колата с видим ефект.</span></li></ol></div></section>
 <section><div class="w"><h2>Свършена работа</h2><p class="lead">Избрани снимки и клипове.</p><div class="mas" data-set="d"><figure><button type="button" data-i="0" aria-label="Отвори снимка: Audi – полиран капак"><img loading="lazy" decoding="async" src="th/d02.jpg" alt="Audi – полиран капак"></button><figcaption>Audi – полиран капак</figcaption></figure><figure><button type="button" data-i="1" aria-label="Отвори снимка: Полиране на фарове"><img loading="lazy" decoding="async" src="th/d05.jpg" alt="Полиране на фарове"></button><figcaption>Полиране на фарове</figcaption></figure><figure><button type="button" data-i="6" aria-label="Отвори снимка: Volkswagen – полиране"><img loading="lazy" decoding="async" src="th/d10.jpg" alt="Volkswagen – полиране"></button><figcaption>Volkswagen – полиране</figcaption></figure><figure><button type="button" data-i="11" aria-label="Отвори снимка: Mercedes – блестяща боя"><img loading="lazy" decoding="async" src="th/d14.jpg" alt="Mercedes – блестяща боя"></button><figcaption>Mercedes – блестяща боя</figcaption></figure><figure><button type="button" data-i="12" aria-label="Отвори снимка: Блясък след полиране"><img loading="lazy" decoding="async" src="th/d09.jpg" alt="Блясък след полиране"></button><figcaption>Блясък след полиране</figcaption></figure><figure><button type="button" data-i="18" aria-label="Отвори снимка: Интериор – почистване"><img loading="lazy" decoding="async" src="th/d15.jpg" alt="Интериор – почистване"></button><figcaption>Интериор – почистване</figcaption></figure><figure><button type="button" data-i="20" aria-label="Отвори снимка: Почистен багажник"><img loading="lazy" decoding="async" src="th/d18.jpg" alt="Почистен багажник"></button><figcaption>Почистен багажник</figcaption></figure><figure><button type="button" data-i="10" aria-label="Отвори снимка: Mercedes"><img loading="lazy" decoding="async" src="th/d08.jpg" alt="Mercedes"></button><figcaption>Mercedes</figcaption></figure></div><div class="btns more"><button class="btn ghost" type="button" data-go="snimki" data-f="d">Всички снимки от детайлинга</button></div><div style="margin-top:34px"><div class="vs"><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid1.mp4" poster="video/poster1.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid4.mp4" poster="video/poster4.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid2.mp4" poster="video/poster2.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid3.mp4" poster="video/poster3.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid5.mp4" poster="video/poster5.jpg" style="aspect-ratio:16/9" aria-label="Видео от нашата работа"></video><video muted loop playsinline preload="none" disablepictureinpicture data-src="video/vid6.mp4" poster="video/poster6.jpg" style="aspect-ratio:9/16" aria-label="Видео от нашата работа"></video></div></div><div class="cta"><p>Искате колата ви да изглежда така?</p><a class="btn" href="#rezervacia">Запази час</a></div></div></section>
@@ -880,6 +896,45 @@ var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
  $$("obook").addEventListener("click",function(){try{if(typeof setCat==="function"){setCat("s");var it=SV.s[0][1];st.dsel={0:1};st.dsels.s=st.dsel;drawOpts();dsync()}}catch(e){}});
  calc()})();
 (function(){var a=document.getElementById("abvb");if(!a)return;a.href="viber://chat?number=%2B359894737402&draft="+encodeURIComponent("Здравейте! Искам абонамент „Поддръжка интериор“ (70 € на месец).\nИме: \nКола: ")})();
+(function(){[].forEach.call(document.querySelectorAll(".rain .rbox"),function(box){var cv=box.querySelector("canvas"),ctx=cv.getContext("2d"),W=0,H=0,K=1,dpr=1,vis=false,raf=0,last=0,acc=0,L=[],R=[],FX=[],RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+ function size(){var r=box.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;K=Math.max(.7,W/420);cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0)}
+ function rnd(a,b){return a+Math.random()*(b-a)}
+ function drop(x,y){var r=rnd(1.6,3.6)*K;if(x<W/2)land(L,x,y,r*2.1,true);else land(R,x,y,r,false);FX.push({x:x,y:y,t:0})}
+ function land(A,x,y,r,flat){var o={x:x,y:y,r:r,vy:0,a:flat?0:1,sh:flat?[rnd(.7,1.3),rnd(.6,1.1),rnd(0,6.28)]:null,life:0};
+  for(var i=A.length-1;i>=0;i--){var b=A[i],d=Math.hypot(b.x-x,b.y-y);if(d<(b.r+r)*(flat?1.05:.9)){var ar=b.r*b.r+r*r;b.x=(b.x*b.r*b.r+x*r*r)/ar;b.y=(b.y*b.r*b.r+y*r*r)/ar;b.r=Math.sqrt(ar)*(flat?1.02:1);b.life=Math.min(b.life,1);return}}A.push(o)}
+ function step(dt){var s=dt/1000;
+  /* дясно: капките растат и при големина се търкалят надолу, като събират другите */
+  for(var i=0;i<R.length;i++){var b=R[i];if(b.r>6.2*K||b.vy>0){b.vy=Math.min(520*K,b.vy+900*K*s);b.y+=b.vy*s;b.x+=Math.sin(b.y*.05)*.3;
+    for(var j=R.length-1;j>=0;j--){if(j===i)continue;var c=R[j];if(Math.hypot(c.x-b.x,c.y-b.y)<b.r+c.r){b.r=Math.sqrt(b.r*b.r+c.r*c.r*.85);R.splice(j,1);if(j<i)i--}}
+    if(Math.random()<.18){R.push({x:b.x+rnd(-1,1),y:b.y-b.r*1.2,r:rnd(.8,1.4)*K,vy:0,a:1,life:0})}b.r=Math.max(2*K,b.r-.6*K*s*10*.1)}
+   b.a=Math.min(1,b.a)}
+  for(var i2=R.length-1;i2>=0;i2--)if(R[i2].y-R[i2].r>H)R.splice(i2,1);
+  /* ляво: петната се разливат, сливат и бавно се стичат */
+  for(var k=0;k<L.length;k++){var p=L[k];p.life+=s;if(p.r>26*K){p.y+=9*K*s;p.r+=1.2*K*s}
+   for(var m=L.length-1;m>k;m--){var q=L[m];if(Math.hypot(q.x-p.x,q.y-p.y)<(p.r+q.r)*.8){var ar=p.r*p.r+q.r*q.r;p.x=(p.x*p.r*p.r+q.x*q.r*q.r)/ar;p.y=(p.y*p.r*p.r+q.y*q.r*q.r)/ar;p.r=Math.sqrt(ar);L.splice(m,1)}}}
+  for(var n=L.length-1;n>=0;n--){var z=L[n];if(z.y-z.r>H||z.life>16)L.splice(n,1)}
+  if(L.length>220)L.splice(0,L.length-220);if(R.length>260)R.splice(0,R.length-260);
+  for(var f=FX.length-1;f>=0;f--){FX[f].t+=s;if(FX[f].t>.35)FX.splice(f,1)}}
+ function draw(){ctx.clearRect(0,0,W,H);
+  ctx.save();ctx.beginPath();ctx.rect(0,0,W/2,H);ctx.clip();
+  L.forEach(function(p){var a=Math.min(1,p.life*3)*(p.life>12?Math.max(0,(16-p.life)/4):1),sh=p.sh;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(sh[2]);ctx.scale(sh[0],sh[1]);
+   ctx.beginPath();ctx.arc(0,0,p.r,0,6.283);ctx.fillStyle="rgba(200,205,215,"+(.13*a)+")";ctx.fill();ctx.lineWidth=1;ctx.strokeStyle="rgba(235,240,250,"+(.22*a)+")";ctx.stroke();
+   ctx.beginPath();ctx.arc(-p.r*.35,-p.r*.35,p.r*.35,0,6.283);ctx.fillStyle="rgba(255,255,255,"+(.05*a)+")";ctx.fill();ctx.restore()});
+  ctx.restore();
+  ctx.save();ctx.beginPath();ctx.rect(W/2,0,W/2,H);ctx.clip();
+  R.forEach(function(b){var r=b.r;ctx.beginPath();ctx.arc(b.x+r*.18,b.y+r*.28,r*1.02,0,6.283);ctx.fillStyle="rgba(0,0,0,.28)";ctx.fill();
+   var g=ctx.createRadialGradient(b.x-r*.3,b.y-r*.35,r*.1,b.x,b.y,r);g.addColorStop(0,"rgba(255,255,255,.7)");g.addColorStop(.4,"rgba(190,205,240,.28)");g.addColorStop(.8,"rgba(120,140,190,.18)");g.addColorStop(1,"rgba(255,255,255,.75)");
+   ctx.beginPath();ctx.arc(b.x,b.y,r,0,6.283);ctx.fillStyle=g;ctx.fill();
+   ctx.beginPath();ctx.arc(b.x-r*.35,b.y-r*.4,Math.max(.6,r*.22),0,6.283);ctx.fillStyle="rgba(255,255,255,.95)";ctx.fill()});
+  ctx.restore();
+  FX.forEach(function(e){var k=e.t/.35;ctx.beginPath();ctx.arc(e.x,e.y,(3+k*10)*K,0,6.283);ctx.strokeStyle="rgba(255,255,255,"+(.35*(1-k))+")";ctx.lineWidth=1;ctx.stroke()})}
+ function tick(now){raf=0;if(!vis)return;var dt=last?Math.min(50,now-last):16;last=now;acc+=dt*(W*H/60000)*.045;while(acc>1){acc--;drop(rnd(0,W),rnd(0,H))}step(dt);draw();raf=requestAnimationFrame(tick)}
+ function run(){if(!raf&&vis){last=0;raf=requestAnimationFrame(tick)}}
+ box.addEventListener("pointerdown",function(e){var r=box.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;box.classList.add("used");for(var i=0;i<26;i++)drop(Math.max(1,Math.min(W-1,x+rnd(-60,60)*K)),Math.max(1,Math.min(H-1,y+rnd(-60,60)*K)));if(RM){step(16);draw()}});
+ window.addEventListener("resize",function(){size();if(RM)draw()});size();
+ if(RM){for(var i=0;i<260;i++)drop(rnd(0,W),rnd(0,H));for(var t=0;t<200;t++)step(16);FX=[];draw();return}
+ if("IntersectionObserver"in window)new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis){size();run()}},{threshold:.15}).observe(box);else{vis=true;run()}
+ document.addEventListener("visibilitychange",function(){if(document.hidden)vis=false;else{var r=box.getBoundingClientRect();vis=r.bottom>0&&r.top<innerHeight;run()}})})})();
 (function(){var C=document.getElementById("brc");if(!C)return;var G=document.getElementById("brg"),BR=[["BMW", ["d22", "d24", "d23", "d17", "s03", "s16", "s18", "s15"]], ["Honda", ["d15", "d16", "d20", "s12", "s13", "s20", "s17"]], ["Mercedes", ["d08", "d14", "d07"]], ["Volkswagen", ["d10", "d11", "d12", "d13", "s04", "s10"]], ["Audi", ["d02", "s02", "s19", "s21"]], ["Toyota", ["s08", "s11"]], ["Opel", ["s09"]], ["Ford", ["s06"]], ["Hyundai", ["s05"]], ["Alfa Romeo", ["s01"]]];
  function idx(k){for(var i=0;i<PHS.length;i++)if(PHS[i].i===k)return i;return -1}
  function show(b){[].forEach.call(C.children,function(x){x.classList.toggle("on",x.dataset.b===b)});G.innerHTML="";
