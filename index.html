@@ -421,16 +421,7 @@ a.promo{color:#fff}
 <a class="panel" href="#detailing"><img src="full/e46.jpg" alt="" loading="lazy" style="object-position:40% 80%"><div><h2>Детайлинг</h2><p>Полиране, керамика, пране на интериор.</p><span>Вижте услугите</span></div></a>
 <a class="panel" href="#servis"><img src="full/s01.jpg" alt="" loading="lazy"><div><h2>Сервиз</h2><p>Масла, филтри, ремъци, окачване.</p><span>Вижте услугите</span></div></a></div>
 <div class="promos"><a class="promo" href="#diagnoza" style="text-decoration:none">Онлайн диагноза<b>30 секунди</b><small>разберете какво ѝ трябва на колата</small></a><a class="promo" href="#abonament" style="text-decoration:none">Абонамент интериор<b>70 €</b><small>чиста кола всеки месец →</small></a><a class="promo" href="#maslo" style="text-decoration:none">Напомняне за масло<b>Безплатно</b><small>телефонът ви напомня сам →</small></a><div class="promo">Керамично покритие<b>5–10 години</b><small>защита на боя и фарове</small></div></div></div></section>
-<section class="bas"><div class="w"><p class="gst">Истински снимки от нашата работа</p><h2>Преди и след</h2><p class="lead">Просто гледайте: снимката сама се сменя от „преди“ на „след“. Искате сами? Докоснете я и плъзнете с пръст.</p>
-<div class="ba" id="ba-home" data-p="0">
-<div class="bat" role="tablist" aria-label="Снимки"><button type="button" aria-selected="true" data-i="0">Полиране на боя</button><button type="button" aria-selected="false" data-i="1">Интериор · Honda</button></div>
-<div class="baf" style="aspect-ratio:3/4" data-a="3/4,4/3" data-s="full/ba1.jpg|full/ba2.jpg,full/bb1.jpg|full/bb2.jpg">
-<img class="b0" src="full/ba1.jpg" alt="Боя преди полиране: холограми и драскотини" loading="lazy" draggable="false"><img class="b1" src="full/ba2.jpg" alt="Боя след полиране" loading="lazy" draggable="false">
-<span class="bl l">ПРЕДИ</span><span class="bl r">СЛЕД</span><div class="bh" aria-hidden="true"><i></i></div><div class="blamp" aria-hidden="true"></div>
-<span class="bahint">✋ Пипнете и местете сами</span><input class="br" type="range" min="0" max="100" value="50" aria-label="Преди или след">
-</div>
-<div class="bam"><button type="button" class="on" data-m="s">↔ Плъзни</button><button type="button" data-m="l">🔦 Лампа</button></div>
-</div></div></section><section class="brs" id="marki"><div class="w"><p class="gst">Снимки от нашата работа</p><h2>Каква е вашата кола?</h2><p class="lead">Изберете марката и вижте какво сме правили по същите коли.</p>
+<section class="brs" id="marki"><div class="w"><p class="gst">Снимки от нашата работа</p><h2>Каква е вашата кола?</h2><p class="lead">Изберете марката и вижте какво сме правили по същите коли.</p>
 <div class="brc" id="brc"><button type="button" data-b="0">BMW <small>8</small></button><button type="button" data-b="1">Honda <small>7</small></button><button type="button" data-b="2">Mercedes <small>3</small></button><button type="button" data-b="3">Volkswagen <small>6</small></button><button type="button" data-b="4">Audi <small>4</small></button><button type="button" data-b="5">Toyota <small>2</small></button><button type="button" data-b="6">Opel <small>1</small></button><button type="button" data-b="7">Ford <small>1</small></button><button type="button" data-b="8">Hyundai <small>1</small></button><button type="button" data-b="9">Alfa Romeo <small>1</small></button><button type="button" data-b="x">Друга марка</button></div>
 <div class="brg" id="brg"></div></div></section><section class="g0" id="g0"><div class="w"><div class="gcard"><div><h2>Станете детейлър за 30 секунди.</h2><p>Две мини игри: огледайте лака с лампа като професионалист и после го полирайте с пръст.</p></div><div class="btns"><button class="btn" type="button" id="gplay">Играй</button><button class="btn ghost" type="button" id="gskip">Не, благодаря</button></div></div></div></section><section class="insp" id="g1" hidden><div class="w"><div class="ig">
 <div class="it"><h2>Преместете лампата.</h2><p>Така изглежда лакът под инспекционна лампа: холограми и микродраскотини, които на дневна светлина не забелязвате. Машинното полиране ги премахва, а керамиката пази резултата от 5 до 10 години.</p>
@@ -896,24 +887,34 @@ var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
  $$("obook").addEventListener("click",function(){try{if(typeof setCat==="function"){setCat("s");var it=SV.s[0][1];st.dsel={0:1};st.dsels.s=st.dsel;drawOpts();dsync()}}catch(e){}});
  calc()})();
 (function(){var a=document.getElementById("abvb");if(!a)return;a.href="viber://chat?number=%2B359894737402&draft="+encodeURIComponent("Здравейте! Искам абонамент „Поддръжка интериор“ (70 € на месец).\nИме: \nКола: ")})();
-(function(){[].forEach.call(document.querySelectorAll(".rain .rbox"),function(box){var cv=box.querySelector("canvas"),ctx=cv.getContext("2d"),W=0,H=0,K=1,dpr=1,vis=false,raf=0,last=0,acc=0,L=[],R=[],FX=[],RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+(function(){[].forEach.call(document.querySelectorAll(".rain .rbox"),function(box){var cv=box.querySelector("canvas"),ctx=cv.getContext("2d"),W=0,H=0,K=1,dpr=1,vis=false,raf=0,last=0,acc=0,L=[],R=[],FX=[],GT=[],clk=0,RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
  function size(){var r=box.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;K=Math.max(.7,W/420);cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0)}
  function rnd(a,b){return a+Math.random()*(b-a)}
- function drop(x,y){var r=rnd(1.6,3.6)*K;if(x<W/2)land(L,x,y,r*2.1,true);else land(R,x,y,r,false);FX.push({x:x,y:y,t:0})}
+ function drop(x,y){var r=rnd(1.6,3.6)*K;if(x<W/2)land(L,x,y,r*2.1,true);else landR(x,y,r);FX.push({x:x,y:y,t:0})}
  function land(A,x,y,r,flat){var o={x:x,y:y,r:r,vy:0,a:flat?0:1,sh:flat?[rnd(.7,1.3),rnd(.6,1.1),rnd(0,6.28)]:null,life:0};
   for(var i=A.length-1;i>=0;i--){var b=A[i],d=Math.hypot(b.x-x,b.y-y);if(d<(b.r+r)*(flat?1.05:.9)){var ar=b.r*b.r+r*r;b.x=(b.x*b.r*b.r+x*r*r)/ar;b.y=(b.y*b.r*b.r+y*r*r)/ar;b.r=Math.sqrt(ar)*(flat?1.02:1);b.life=Math.min(b.life,1);return}}A.push(o)}
- function step(dt){var s=dt/1000;
-  /* дясно: капките растат и при големина се търкалят надолу, като събират другите */
-  for(var i=0;i<R.length;i++){var b=R[i];if(b.r>6.2*K||b.vy>0){b.vy=Math.min(520*K,b.vy+900*K*s);b.y+=b.vy*s;b.x+=Math.sin(b.y*.05)*.3;
-    for(var j=R.length-1;j>=0;j--){if(j===i)continue;var c=R[j];if(Math.hypot(c.x-b.x,c.y-b.y)<b.r+c.r){b.r=Math.sqrt(b.r*b.r+c.r*c.r*.85);R.splice(j,1);if(j<i)i--}}
-    if(Math.random()<.18){R.push({x:b.x+rnd(-1,1),y:b.y-b.r*1.2,r:rnd(.8,1.4)*K,vy:0,a:1,life:0})}b.r=Math.max(2*K,b.r-.6*K*s*10*.1)}
-   b.a=Math.min(1,b.a)}
-  for(var i2=R.length-1;i2>=0;i2--)if(R[i2].y-R[i2].r>H)R.splice(i2,1);
+ function landR(x,y,r){x=Math.max(W/2+r,x);for(var i=R.length-1;i>=0;i--){var b=R[i];if(Math.hypot(b.x-x,b.y-y)<(b.r+r)*.9){var ar=b.r*b.r+r*r;if(!b.mv){b.x=(b.x*b.r*b.r+x*r*r)/ar;b.y=(b.y*b.r*b.r+y*r*r)/ar}b.r=Math.sqrt(ar);b.wb=1;return}}R.push({x:x,y:y,r:r,vy:0,mv:false,x0:x,ph:rnd(0,6.28),tr:null,wb:.6})}
+ function slideR(b,s){
+  if(!b.mv){if(b.r>4.4*K||(b.r>3.3*K&&Math.random()<s*.12)){b.mv=true;b.x0=b.x;b.vy=0;b.tr=[];b.am=rnd(1.5,4)*K;b.fq=rnd(.010,.022)}else return}
+  /* мазно плъзгане: плавно ускорение до скорост според големината */
+  var tv=b.r<2.5*K?0:Math.min(340*K,(b.r/K-2.5)*62*K+25*K);b.vy+=(tv-b.vy)*Math.min(1,s*1.8);
+  b.y+=b.vy*s;b.x=Math.max(W/2+b.r,b.x0+Math.sin(b.y*b.fq+b.ph)*b.am);
+  var t=b.tr,lp=t[t.length-1];if(!lp||Math.hypot(lp.x-b.x,lp.y-b.y)>1.5)t.push({x:b.x,y:b.y,w:b.r,t:clk});
+  while(t.length&&clk-t[0].t>1.8)t.shift();
+  /* губи малко вода и оставя мъничка капчица зад себе си */
+  b.r=Math.max(2*K,b.r-s*.18*K);if(b.vy>40*K&&Math.random()<s*1.6&&b.r>3*K){var nr=rnd(.6,1.1)*K;b.r=Math.sqrt(Math.max(1,b.r*b.r-nr*nr));R.push({x:b.x+rnd(-.6,.6)*K,y:b.y-b.r*1.6,r:nr,vy:0,mv:false,x0:b.x,ph:0,tr:null,wb:0})}
+  if(b.vy<3*K&&tv===0){b.mv=false;if(t.length>1)GT.push({p:t,a:1});b.tr=null}}
+ function step(dt){var s=dt/1000;clk+=s;
+  /* дясно: керамика – кръгли капки, които се плъзгат надолу мазно и събират другите */
+  for(var i=0;i<R.length;i++){var b=R[i];b.wb=Math.max(0,(b.wb||0)-s*2.5);slideR(b,s);if(!b.mv)continue;
+    for(var j=R.length-1;j>=0;j--){if(j===i)continue;var c=R[j];if(Math.hypot(c.x-b.x,c.y-b.y)<b.r+c.r*.85){b.r=Math.min(9*K,Math.sqrt(b.r*b.r+c.r*c.r));b.wb=1;R.splice(j,1);if(j<i)i--}}}
+  for(var i2=R.length-1;i2>=0;i2--){var d=R[i2];if(d.y-d.r*3>H){if(d.tr&&d.tr.length>1)GT.push({p:d.tr,a:1});R.splice(i2,1)}}
+  for(var g=GT.length-1;g>=0;g--){var gp=GT[g].p;while(gp.length&&clk-gp[0].t>1.8)gp.shift();if(gp.length<2)GT.splice(g,1)}
   /* ляво: петната се разливат, сливат и бавно се стичат */
   for(var k=0;k<L.length;k++){var p=L[k];p.life+=s;if(p.r>26*K){p.y+=9*K*s;p.r+=1.2*K*s}
    for(var m=L.length-1;m>k;m--){var q=L[m];if(Math.hypot(q.x-p.x,q.y-p.y)<(p.r+q.r)*.8){var ar=p.r*p.r+q.r*q.r;p.x=(p.x*p.r*p.r+q.x*q.r*q.r)/ar;p.y=(p.y*p.r*p.r+q.y*q.r*q.r)/ar;p.r=Math.sqrt(ar);L.splice(m,1)}}}
   for(var n=L.length-1;n>=0;n--){var z=L[n];if(z.y-z.r>H||z.life>16)L.splice(n,1)}
-  if(L.length>220)L.splice(0,L.length-220);if(R.length>260)R.splice(0,R.length-260);
+  if(L.length>220)L.splice(0,L.length-220);if(R.length>260){for(var q2=0;q2<R.length&&R.length>260;q2++)if(!R[q2].mv){R.splice(q2,1);q2--}}
   for(var f=FX.length-1;f>=0;f--){FX[f].t+=s;if(FX[f].t>.35)FX.splice(f,1)}}
  function draw(){ctx.clearRect(0,0,W,H);
   ctx.save();ctx.beginPath();ctx.rect(0,0,W/2,H);ctx.clip();
@@ -922,10 +923,19 @@ var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
    ctx.beginPath();ctx.arc(-p.r*.35,-p.r*.35,p.r*.35,0,6.283);ctx.fillStyle="rgba(255,255,255,"+(.05*a)+")";ctx.fill();ctx.restore()});
   ctx.restore();
   ctx.save();ctx.beginPath();ctx.rect(W/2,0,W/2,H);ctx.clip();
-  R.forEach(function(b){var r=b.r;ctx.beginPath();ctx.arc(b.x+r*.18,b.y+r*.28,r*1.02,0,6.283);ctx.fillStyle="rgba(0,0,0,.28)";ctx.fill();
-   var g=ctx.createRadialGradient(b.x-r*.3,b.y-r*.35,r*.1,b.x,b.y,r);g.addColorStop(0,"rgba(255,255,255,.7)");g.addColorStop(.4,"rgba(190,205,240,.28)");g.addColorStop(.8,"rgba(120,140,190,.18)");g.addColorStop(1,"rgba(255,255,255,.75)");
-   ctx.beginPath();ctx.arc(b.x,b.y,r,0,6.283);ctx.fillStyle=g;ctx.fill();
-   ctx.beginPath();ctx.arc(b.x-r*.35,b.y-r*.4,Math.max(.6,r*.22),0,6.283);ctx.fillStyle="rgba(255,255,255,.95)";ctx.fill()});
+  function trail(t){if(t.length<2)return;ctx.lineCap="round";ctx.lineJoin="round";
+   for(var i=1;i<t.length;i++){var p=t[i-1],q=t[i],f=Math.max(0,1-(clk-q.t)/1.8);if(f<=0)continue;
+    ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.lineWidth=q.w*(.55+.45*f)*1.15;ctx.strokeStyle="rgba(10,14,24,"+(.22*f)+")";ctx.stroke();
+    ctx.lineWidth=q.w*.9*(.5+.5*f);ctx.strokeStyle="rgba(200,215,245,"+(.07*f)+")";ctx.stroke();
+    ctx.beginPath();ctx.moveTo(p.x-q.w*.3,p.y);ctx.lineTo(q.x-q.w*.3,q.y);ctx.lineWidth=Math.max(.6,q.w*.14);ctx.strokeStyle="rgba(255,255,255,"+(.18*f*f)+")";ctx.stroke()}}
+  GT.forEach(function(g){trail(g.p)});R.forEach(function(b){if(b.tr)trail(b.tr)});
+  function shape(x,y,rx,ry,tail){ctx.beginPath();if(tail>ry*1.05){ctx.moveTo(x,y-tail);ctx.bezierCurveTo(x+rx*.5,y-tail*.62,x+rx,y-ry*.55,x+rx,y);ctx.ellipse(x,y,rx,ry,0,0,Math.PI);ctx.bezierCurveTo(x-rx,y-ry*.55,x-rx*.5,y-tail*.62,x,y-tail)}else ctx.ellipse(x,y,rx,ry,0,0,6.283)}
+  R.forEach(function(b){var r=b.r,st=b.mv?Math.min(1,b.vy/(170*K)):0,w=Math.sin(clk*22+b.ph)*.07*(b.wb||0),rx=r*(1-st*.13+w),ry=r*(1+st*.12-w),tail=r*(1+st*1.5),x=b.x,y=b.y;
+   shape(x+r*.16,y+r*.3,rx*1.04,ry*1.04,tail);ctx.fillStyle="rgba(0,0,0,.32)";ctx.fill();
+   var g=ctx.createRadialGradient(x-r*.28,y-r*.3,r*.08,x,y+r*.1,r*1.1);g.addColorStop(0,"rgba(255,255,255,.62)");g.addColorStop(.35,"rgba(185,200,240,.22)");g.addColorStop(.72,"rgba(70,85,130,.16)");g.addColorStop(.92,"rgba(210,225,255,.5)");g.addColorStop(1,"rgba(255,255,255,.8)");
+   shape(x,y,rx,ry,tail);ctx.fillStyle=g;ctx.fill();ctx.lineWidth=Math.max(.5,r*.07);ctx.strokeStyle="rgba(255,255,255,.35)";ctx.stroke();
+   ctx.beginPath();ctx.ellipse(x-rx*.36,y-ry*.38-st*r*.25,Math.max(.6,rx*.24),Math.max(.6,ry*.17+st*r*.14),-.5,0,6.283);ctx.fillStyle="rgba(255,255,255,.95)";ctx.fill();
+   if(r>2.2*K){ctx.beginPath();ctx.ellipse(x+rx*.32,y+ry*.5,rx*.26,ry*.1,-.3,0,6.283);ctx.fillStyle="rgba(255,255,255,.28)";ctx.fill()}});
   ctx.restore();
   FX.forEach(function(e){var k=e.t/.35;ctx.beginPath();ctx.arc(e.x,e.y,(3+k*10)*K,0,6.283);ctx.strokeStyle="rgba(255,255,255,"+(.35*(1-k))+")";ctx.lineWidth=1;ctx.stroke()})}
  function tick(now){raf=0;if(!vis)return;var dt=last?Math.min(50,now-last):16;last=now;acc+=dt*(W*H/60000)*.045;while(acc>1){acc--;drop(rnd(0,W),rnd(0,H))}step(dt);draw();raf=requestAnimationFrame(tick)}
