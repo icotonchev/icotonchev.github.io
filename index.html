@@ -344,6 +344,10 @@ button.hw>div{flex:1}button.hw:active{transform:scale(.985)}
 .hw.cur{border-color:var(--red);background:rgba(228,24,27,.1)}.hw.cur .hn{color:#fff;background:var(--red);padding:6px 10px;border-radius:999px}.hw.cur .hn::before{content:"Следващ"}
 .hw.dn>i{background:#2a2a30;box-shadow:0 0 0 2px var(--red)}.hw.dn .hn::before{content:"✓ ";color:#2ecc71}
 .prog li button{all:unset;display:block;width:100%;cursor:pointer;padding-bottom:4px}.prog li button:focus-visible{outline:3px solid var(--red2);outline-offset:3px}
+.desk{max-width:520px;margin:6px 0 16px;background:var(--sf);border:1px solid var(--ln);border-left:4px solid #7360f2;border-radius:16px;padding:18px}
+.desk>b{display:block;font-size:17px;margin-bottom:8px}.desk ol{margin:0 0 4px;padding-left:20px;color:var(--mu)}.desk ol li{margin:0 0 8px}.desk ol b{color:var(--ink)}
+.desk kbd{display:inline-block;font:600 13px ui-monospace,Menlo,monospace;color:#fff;background:var(--sf2);border:1px solid #44444c;border-bottom-width:3px;border-radius:6px;padding:1px 7px}
+.desk .msg{margin:10px 0 12px;font-size:14px;color:#d0d0d6}
 .hw.ok{border-color:rgba(46,204,113,.35);background:rgba(46,204,113,.06)}.hw.ok>i{background:#2ecc71;color:#06130b}
 .hw b{display:block;font-size:16px}.hw p{margin:3px 0 0;color:var(--mu);font-size:14.5px;line-height:1.45}
 .arr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#7360f2;color:#fff;font-size:11px;vertical-align:1px}
@@ -568,6 +572,12 @@ a.promo{color:#fff}
 <div class="pm" style="padding-bottom:20px"><div><small>Плащане</small><b>В брой</b></div><div><small>Адрес</small><b>ул. „Кузман Шапкарев“ 20</b></div></div>
 <div class="pstamp">Очаква потвърждение</div></div>
 <p class="hint" id="ynote"></p>
+<div class="desk" id="ydesk" hidden><b>Последна стъпка: изпратете съобщението</b>
+<ol><li>Отваря се <b>Viber</b> на компютъра, в чата с Христо. Ако браузърът попита, натиснете „Отвори Viber“.</li>
+<li>Съобщението е <b>копирано</b>. Кликнете в полето за писане във Viber, натиснете <kbd id="ykey">Ctrl</kbd> + <kbd>V</kbd> и после <kbd>Enter</kbd>.</li></ol>
+<textarea class="msg" id="ymsg" rows="7" readonly aria-label="Текст на заявката"></textarea>
+<div class="btns"><a class="btn" id="yvbd" href="#">Отвори Viber</a><button class="btn ghost" type="button" id="ycopy">Копирай съобщението</button></div>
+<p class="hint" id="ycall"></p></div>
 <div class="nav" style="justify-content:flex-start"><a class="btn ghost" id="yvb" href="#">Отвори Viber отново</a><a class="btn ghost" id="ysms" href="#">Изпрати по SMS</a><a class="btn ghost" id="ical" href="#" hidden>Добави в календара</a><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=ул.+Кузман+Шапкарев+20,+4004+Пловдив" target="_blank" rel="noopener">Как да стигнете</a><button class="btn ghost" type="button" id="nw">Нова заявка</button></div></div>
 </div>
 </div>
@@ -764,9 +774,16 @@ $("n3").addEventListener("click",function(e){var nm=$("nm").value.trim(),dg=$("p
  $("e3").textContent="";upd();$("ysms").href=smsHref();$("yvb").href=vbHref();
  $("ty").textContent="Благодарим, "+nm.split(" ")[0]+"!";$("y1").textContent=st.svc;$("y2").textContent=dtxt();$("y3").textContent=dtx(st.need,st.max);$("y4").textContent=st.wt||"по оглед";
  if(MOB){$("ynote").textContent="Важно: натиснете „Изпрати“ в чата във Viber, който се отвори, за да получи Христо заявката. Нямате Viber? Изпратете по SMS.";$("ysms").style.display="";$("yvb").style.display=""}
- else{e.preventDefault();$("ynote").textContent="Не сте на телефон? Обадете се на "+PD[st.cat]+", за да потвърдите резервацията.";$("ysms").style.display="none";$("yvb").style.display="none"}
+ else{var tx=smsTxt();copyTx(tx);$("ynote").textContent="";$("ysms").style.display="none";$("yvb").style.display="none";$("ydesk").hidden=false;$("ymsg").value=tx;$("yvbd").href=vbHref();
+  $("ykey").textContent=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent)?"⌘ Cmd":"Ctrl";
+  $("ycall").textContent="Нямате Viber на компютъра? Обадете се на "+PD[st.cat]+" или пратете текста от телефона си във Viber на същия номер."}
  setTimeout(function(){go(4)},MOB?400:0)});
-$("nw").onclick=function(){st.dsel={};st.dsels={d:{},s:{}};$("ysms").style.display="";$("yvb").style.display="";st.svc="";st.grp="";st.date=null;st.need=1;st.max=1;st.wt="";["nm","ph","cr","nt"].forEach(function(i){$(i).value=""});drawOpts();drawDays();sumUp();go(1)};
+function copyTx(t){var ok=function(){var b=$("ycopy");if(b){b.textContent="✓ Копирано";setTimeout(function(){b.textContent="Копирай съобщението"},2500)}};
+ try{if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,function(){oldCopy(t)&&ok()});return}}catch(e){}if(oldCopy(t))ok()}
+function oldCopy(t){var a=document.createElement("textarea");a.value=t;a.setAttribute("readonly","");a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();var r=false;try{r=document.execCommand("copy")}catch(e){}a.remove();return r}
+$("ycopy").onclick=function(){copyTx($("ymsg").value);$("ymsg").select()};
+$("yvbd").addEventListener("click",function(){copyTx($("ymsg").value)});
+$("nw").onclick=function(){$("ydesk").hidden=true;st.dsel={};st.dsels={d:{},s:{}};$("ysms").style.display="";$("yvb").style.display="";st.svc="";st.grp="";st.date=null;st.need=1;st.max=1;st.wt="";["nm","ph","cr","nt"].forEach(function(i){$(i).value=""});drawOpts();drawDays();sumUp();go(1)};
 setCat("d");drawDays();sumUp();go(1);showPh("all");
 try{if(location.protocol.indexOf("http")===0)fetch("zaeti.json?v="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j)return;BUSY={d:j.d||[],s:j.s||[]};if(st.date&&!okDay(st.date)){st.date=null;sumUp()}drawDays()}).catch(function(){})}catch(e){}
 var ZN={interior:["Интериор","Какво е състоянието вътре?",[["Прах и леко замърсяване","d","Почистване на интериор – Освежаване","след оглед","1–2 ч",1,1],["Петна по седалките или мокета","d","Почистване на интериор – Комплексно","след оглед","4–6 ч",1,2],["Много мръсно, искам всичко като ново","d","Почистване на интериор – Премиум","след оглед","6–8 ч",2,3],["Искам да е чисто всеки месец","d","Абонамент – Поддръжка интериор (месечно)","70 €","1–2 ч",1,1],["Друго – ще обясня по телефона","d","Интериор – друго, ще обясня по телефона","по оглед","по оглед",1,1],["Чисто е"]]],
