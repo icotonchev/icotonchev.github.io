@@ -351,6 +351,12 @@ button.hw>div{flex:1}button.hw:active{transform:scale(.985)}
 .qrw{background:#fff;border-radius:14px;padding:12px;width:100%;max-width:240px;margin-bottom:12px}.qrw canvas{display:block;width:100%;height:auto;image-rendering:pixelated}.desk ol{margin:0 0 4px;padding-left:20px;color:var(--mu)}.desk ol li{margin:0 0 8px}.desk ol b{color:var(--ink)}
 .desk kbd{display:inline-block;font:600 13px ui-monospace,Menlo,monospace;color:#fff;background:var(--sf2);border:1px solid #44444c;border-bottom-width:3px;border-radius:6px;padding:1px 7px}
 .desk .msg{margin:10px 0 12px;font-size:14px;color:#d0d0d6}
+.disc{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:6px 14px 6px 6px;border-radius:999px;background:#e4181b;color:#fff;font-size:14px;font-weight:600;text-decoration:none;box-shadow:0 0 0 4px rgba(228,24,27,.25);animation:dpulse 2.4s ease-in-out infinite}
+.disc b{background:#fff;color:#e4181b;border-radius:999px;padding:2px 9px;font-weight:800}.disc:hover{background:#ff2a2d}
+@keyframes dpulse{50%{box-shadow:0 0 0 9px rgba(228,24,27,0)}}
+.promo.pdisc{background:#fff;color:#0a0a0b!important;box-shadow:inset 0 0 0 3px #e4181b}.promo.pdisc b{color:#e4181b}.promo.pdisc small{color:#3a3a42;opacity:1}
+.rdisc{display:flex;align-items:center;gap:12px;max-width:820px;margin:-12px 0 22px;padding:12px 16px;border-radius:14px;background:rgba(228,24,27,.12);border:1px solid rgba(228,24,27,.45);font-weight:600}.rdisc b{flex:none;background:#e4181b;color:#fff;border-radius:10px;padding:6px 10px;font-size:18px}
+@media(prefers-reduced-motion:reduce){.disc{animation:none}}
 .hw.ok{border-color:rgba(46,204,113,.35);background:rgba(46,204,113,.06)}.hw.ok>i{background:#2ecc71;color:#06130b}
 .hw b{display:block;font-size:16px}.hw p{margin:3px 0 0;color:var(--mu);font-size:14.5px;line-height:1.45}
 .arr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#7360f2;color:#fff;font-size:11px;vertical-align:1px}
@@ -426,14 +432,14 @@ a.promo{color:#fff}
 <a class="call" id="hp" href="#kontakti">Контакти</a></div></header>
 <main>
 <div class="view" id="v-nachalo">
-<div class="ad"><div class="ign" aria-hidden="true"><img class="i-off" src="full/hero3.jpg" alt=""><img class="i-on" src="full/hero3.jpg" alt=""><img class="i-glow" src="full/hero3.jpg" alt=""></div><div class="w"><div><span class="ost" data-open>Пон–Пет 9:00–18:00 · Съб 10:00–14:00</span></div><h1>Колата ви.<br>Като нова.</h1>
+<div class="ad"><div class="ign" aria-hidden="true"><img class="i-off" src="full/hero3.jpg" alt=""><img class="i-on" src="full/hero3.jpg" alt=""><img class="i-glow" src="full/hero3.jpg" alt=""></div><div class="w"><div><span class="ost" data-open>Пон–Пет 9:00–18:00 · Съб 10:00–14:00</span> <a class="disc" href="#rezervacia"><b>−8%</b> при резервация през сайта <span aria-hidden="true">→</span></a></div><h1>Колата ви.<br>Като нова.</h1>
 <p>Автодетайлинг и сервиз в Пловдив: полиране, керамика, почистване, масла, ремъци и окачване.</p>
 <div class="btns"><a class="btn" href="#rezervacia">Запази час</a><a class="btn ghost" href="#detailing">Ценоразпис</a></div>
 <div class="ph2"><span>Детайлинг: <a href="tel:+359894737402">0894 737 402</a></span><span>Сервиз: <a href="tel:+359896384321">0896 384 321</a></span></div></div></div>
 <section><div class="w"><div class="sea" id="sea" hidden></div><div class="duo">
 <a class="panel" href="#detailing"><img src="full/e46.jpg" alt="" loading="lazy" style="object-position:40% 80%"><div><h2>Детайлинг</h2><p>Полиране, керамика, пране на интериор.</p><span>Вижте услугите</span></div></a>
 <a class="panel" href="#servis"><img src="full/s01.jpg" alt="" loading="lazy"><div><h2>Сервиз</h2><p>Масла, филтри, ремъци, окачване.</p><span>Вижте услугите</span></div></a></div>
-<div class="promos"><a class="promo" href="#diagnoza" style="text-decoration:none">Онлайн диагноза<b>30 секунди</b><small>разберете какво ѝ трябва на колата</small></a><a class="promo" href="#abonament" style="text-decoration:none">Абонамент интериор<b>70 €</b><small>чиста кола всеки месец →</small></a><a class="promo" href="#maslo" style="text-decoration:none">Напомняне за масло<b>Безплатно</b><small>телефонът ви напомня сам →</small></a><div class="promo">Керамично покритие<b>5–10 години</b><small>защита на боя и фарове</small></div></div></div></section>
+<div class="promos"><a class="promo pdisc" href="#rezervacia" style="text-decoration:none">Запазете час онлайн<b>−8% отстъпка</b><small>при резервация през сайта · натиснете тук →</small></a><a class="promo" href="#diagnoza" style="text-decoration:none">Онлайн диагноза<b>30 секунди</b><small>разберете какво ѝ трябва на колата</small></a><a class="promo" href="#abonament" style="text-decoration:none">Абонамент интериор<b>70 €</b><small>чиста кола всеки месец →</small></a><a class="promo" href="#maslo" style="text-decoration:none">Напомняне за масло<b>Безплатно</b><small>телефонът ви напомня сам →</small></a><div class="promo">Керамично покритие<b>5–10 години</b><small>защита на боя и фарове</small></div></div></div></section>
 <section class="brs" id="marki"><div class="w"><p class="gst">Снимки от нашата работа</p><h2>Каква е вашата кола?</h2><p class="lead">Изберете марката и вижте какво сме правили по същите коли.</p>
 <div class="brc" id="brc"><button type="button" data-b="0">BMW <small>8</small></button><button type="button" data-b="1">Honda <small>7</small></button><button type="button" data-b="2">Mercedes <small>3</small></button><button type="button" data-b="3">Volkswagen <small>6</small></button><button type="button" data-b="4">Audi <small>4</small></button><button type="button" data-b="5">Toyota <small>2</small></button><button type="button" data-b="6">Opel <small>1</small></button><button type="button" data-b="7">Ford <small>1</small></button><button type="button" data-b="8">Hyundai <small>1</small></button><button type="button" data-b="9">Alfa Romeo <small>1</small></button><button type="button" data-b="x">Друга марка</button></div>
 <div class="brg" id="brg"></div></div></section><section class="g0" id="g0"><div class="w"><div class="gcard"><div><h2>Станете детейлър за 30 секунди.</h2><p>Две мини игри: огледайте лака с лампа като професионалист и после го полирайте с пръст.</p></div><div class="btns"><button class="btn" type="button" id="gplay">Играй</button><button class="btn ghost" type="button" id="gskip">Не, благодаря</button></div></div></div></section><section class="insp" id="g1" hidden><div class="w"><div class="ig">
@@ -545,7 +551,7 @@ a.promo{color:#fff}
 <p><b>„Бисквитки“.</b> Сайтът не използва рекламни или проследяващи „бисквитки“.</p>
 <p>Администратор на данните: Tonchev Auto, ул. „Кузман Шапкарев“ 20, 4004 Пловдив.</p></div></section></div>
 
-<div class="view" id="v-rezervacia"><section id="rezervacia" style="padding-top:44px"><div class="w"><h1 class="sh" style="font-size:clamp(30px,6vw,48px)">Запазете час</h1><p class="lead">Лесно е и отнема около минута. Не плащате нищо предварително.</p>
+<div class="view" id="v-rezervacia"><section id="rezervacia" style="padding-top:44px"><div class="w"><h1 class="sh" style="font-size:clamp(30px,6vw,48px)">Запазете час</h1><p class="lead">Лесно е и отнема около минута. Не плащате нищо предварително.</p><p class="rdisc"><b>−8%</b> Получавате 8% отстъпка, защото запазвате час през сайта.</p>
 <div class="how" aria-label="Как се запазва час">
 <button type="button" class="hw hj" data-j="1"><i>1</i><div><b>Изберете какво искате</b><p>Натиснете „Детайлинг“ или „Сервиз“ и отметнете услугата. Може и няколко.</p></div><em class="hn" aria-hidden="true"></em></button>
 <button type="button" class="hw hj" data-j="2"><i>2</i><div><b>Изберете ден</b><p>Докоснете деня, в който искате да дойдете. Шарените дни са заети.</p></div><em class="hn" aria-hidden="true"></em></button>
@@ -695,7 +701,7 @@ function showView(v){curV=v;qa(".view").forEach(function(x){x.classList.toggle("
  setTimeout(scanV,30)}
 function route(){var h="";try{h=decodeURIComponent(location.hash.slice(1))}catch(e){}
  if(h.indexOf("z=")===0&&typeof fromQR==="function"&&fromQR(location.hash.slice(3)))return;
- if(h==="farove"){try{setCat("d");st.dsel={2:1};st.dsels.d=st.dsel;drawOpts();dsync();var nt=$("nt");if(nt&&!nt.value)nt.value="Средно пожълтени фарове. От рекламата: −8% отстъпка при резервация през сайта.";upd();drawDays();showView("rezervacia");st.init=1;go(2);var e2=$("e2");if(e2)e2.textContent="Избрахме ви „Полиране на фарове“. Сега изберете ден.";e2&&(e2.style.color="#9fe0b8");setTimeout(function(){var f=document.querySelector("#rezervacia .bm");if(f)f.scrollIntoView({block:"start"})},80)}catch(e){showView("rezervacia")}return}
+ if(h==="farove"){try{setCat("d");st.dsel={2:1};st.dsels.d=st.dsel;drawOpts();dsync();var nt=$("nt");if(nt&&!nt.value)nt.value="Средно пожълтени фарове (от рекламата).";upd();drawDays();showView("rezervacia");st.init=1;go(2);var e2=$("e2");if(e2)e2.textContent="Избрахме ви „Полиране на фарове“. Сега изберете ден.";e2&&(e2.style.color="#9fe0b8");setTimeout(function(){var f=document.querySelector("#rezervacia .bm");if(f)f.scrollIntoView({block:"start"})},80)}catch(e){showView("rezervacia")}return}
  if(VW.indexOf(h)>-1){showView(h);window.scrollTo(0,0);return}
  if(!document.querySelector(".view.on"))showView("nachalo");
  if(h){var e=document.getElementById(h);if(e){var v=e.closest(".view");if(v&&!v.classList.contains("on"))showView(v.id.slice(2));requestAnimationFrame(function(){e.scrollIntoView()})}}}
@@ -755,7 +761,7 @@ function drawDays(){var box=$("cal");qa(".cd,.ce",box).forEach(function(x){x.rem
  $("dur2").textContent=st.svc?("⏱ "+(st.wt||"по оглед")+" работа"+(st.max>1?". Колата остава "+dtx(st.need,st.max)+". Показани са само дните, в които можем да я поемем.":".")):""}
 function dtxt(){return st.date?DF[st.date.getDay()]+", "+st.date.getDate()+" "+MN[st.date.getMonth()]:""}
 function sumUp(){if(!$("s1"))return;[["s1",st.svc,"Не е избрана"],["s2",dtxt(),"Не е избран"]].forEach(function(x){var e=$(x[0]);e.textContent=x[1]||x[2];e.className=x[1]?"":"e"});var e=$("s4");e.textContent=st.svc?dtx(st.need,st.max):"Зависи от услугата";e.className=st.svc?"":"e";var w=$("s5");w.textContent=st.svc?(st.wt||"по оглед")+"":"Зависи от услугата";w.className=st.svc?"":"e"}
-function barPri(){var a=document.querySelector("#abar .pri");if(!a)return;var r=curV==="rezervacia";a.textContent=r?"Продължи":"Запази час";a.style.visibility=r&&st.step>=4?"hidden":""}
+function barPri(){var a=document.querySelector("#abar .pri");if(!a)return;var r=curV==="rezervacia";a.textContent=r?"Продължи":"Запази час −8%";a.style.visibility=r&&st.step>=4?"hidden":""}
  document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("#abar .pri");if(!a||curV!=="rezervacia")return;e.preventDefault();var b=$("n"+st.step);if(b){b.scrollIntoView({block:"center",behavior:"smooth"});b.click()}},true);
  function go(n){st.step=n;barPri();for(var i=1;i<=4;i++)$("p"+i).classList.toggle("on",i===n);for(var j=1;j<=3;j++){var g=$("pg"+j);g.classList.toggle("on",j===n);g.classList.toggle("ok",j<n||n===4)}
  qa(".hw.hj").forEach(function(c){var k=+c.dataset.j;c.classList.toggle("cur",k===n&&n<4);c.classList.toggle("dn",k<n||n===4)});
@@ -771,7 +777,7 @@ $("n1").onclick=function(){st.init=1;if(!st.svc){$("e1").textContent="Избер
 $("n2").onclick=function(){st.init=1;if(!st.date){$("e2").style.color="";$("e2").textContent="Изберете ден.";return}go(3)};
 qa("[data-b]").forEach(function(b){b.onclick=function(){st.init=1;go(+b.dataset.b)}});
 var MOB=(window.matchMedia&&matchMedia("(pointer:coarse)").matches)||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")+(st.date?"\n\nЗа Tonchev (отбележи деня): https://icotonchev.github.io/zaeti.html#c="+st.cat+"&d="+key(st.date)+"&n="+st.need:"")}
+function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nОтстъпка: −8% (резервация през сайта)"+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")+(st.date?"\n\nЗа Tonchev (отбележи деня): https://icotonchev.github.io/zaeti.html#c="+st.cat+"&d="+key(st.date)+"&n="+st.need:"")}
 function smsHref(){return "sms:+"+PH[st.cat]+"?&body="+encodeURIComponent(smsTxt())}
 function vbHref(){return "viber://chat?number=%2B"+PH[st.cat]+"&draft="+encodeURIComponent(smsTxt())}
 function upd(){$("n3").href=vbHref()}["nm","ph","cr","nt"].forEach(function(i){$(i).addEventListener("input",upd)});
