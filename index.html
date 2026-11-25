@@ -669,7 +669,7 @@ var st={cat:"d",svc:"",grp:"",date:null,need:1,max:1,wt:"",step:1};
 /* ---- views ---- */
 var VW=["nachalo","detailing","servis","diagnoza","snimki","informacia","za-nas","rezervacia","poveritelnost","abonament"],curV="nachalo";
 function hp(){var a=$("hp");if(curV==="servis"){a.href="tel:+"+PH.s;a.textContent=PD.s}else if(curV==="detailing"){a.href="tel:+"+PH.d;a.textContent=PD.d}else{a.href="#kontakti";a.textContent="Контакти"}}
-function showView(v){curV=v;qa(".view").forEach(function(x){x.classList.toggle("on",x.id==="v-"+v)});qa(".tabs a").forEach(function(a){if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});hp();if(st.step===1&&!st.svc){if(v==="servis")setCat("s");else if(v==="detailing")setCat("d")}
+function showView(v){curV=v;qa(".view").forEach(function(x){x.classList.toggle("on",x.id==="v-"+v)});qa(".tabs a").forEach(function(a){if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});hp();barPri();if(st.step===1&&!st.svc){if(v==="servis")setCat("s");else if(v==="detailing")setCat("d")}
  var t=document.querySelector(".tabs a[aria-current]");if(t&&t.scrollIntoView)try{t.scrollIntoView({inline:"center",block:"nearest"})}catch(e){}
  setTimeout(scanV,30)}
 function route(){var h="";try{h=decodeURIComponent(location.hash.slice(1))}catch(e){}
@@ -732,7 +732,9 @@ function drawDays(){var box=$("cal");qa(".cd,.ce",box).forEach(function(x){x.rem
  $("dur2").textContent=st.svc?("⏱ "+(st.wt||"по оглед")+" работа"+(st.max>1?". Колата остава "+dtx(st.need,st.max)+". Показани са само дните, в които можем да я поемем.":".")):""}
 function dtxt(){return st.date?DF[st.date.getDay()]+", "+st.date.getDate()+" "+MN[st.date.getMonth()]:""}
 function sumUp(){if(!$("s1"))return;[["s1",st.svc,"Не е избрана"],["s2",dtxt(),"Не е избран"]].forEach(function(x){var e=$(x[0]);e.textContent=x[1]||x[2];e.className=x[1]?"":"e"});var e=$("s4");e.textContent=st.svc?dtx(st.need,st.max):"Зависи от услугата";e.className=st.svc?"":"e";var w=$("s5");w.textContent=st.svc?(st.wt||"по оглед")+"":"Зависи от услугата";w.className=st.svc?"":"e"}
-function go(n){st.step=n;for(var i=1;i<=4;i++)$("p"+i).classList.toggle("on",i===n);for(var j=1;j<=3;j++){var g=$("g"+j);g.classList.toggle("on",j===n);g.classList.toggle("ok",j<n||n===4)}
+function barPri(){var a=document.querySelector("#abar .pri");if(!a)return;var r=curV==="rezervacia";a.textContent=r?"Продължи":"Запази час";a.style.visibility=r&&st.step>=4?"hidden":""}
+ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("#abar .pri");if(!a||curV!=="rezervacia")return;e.preventDefault();var b=$("n"+st.step);if(b){b.scrollIntoView({block:"center",behavior:"smooth"});b.click()}},true);
+ function go(n){st.step=n;barPri();for(var i=1;i<=4;i++)$("p"+i).classList.toggle("on",i===n);for(var j=1;j<=3;j++){var g=$("g"+j);g.classList.toggle("on",j===n);g.classList.toggle("ok",j<n||n===4)}
  var r=$("rezervacia");if(r&&r.getBoundingClientRect().top<0||r.getBoundingClientRect().top>window.innerHeight*0.5)r.scrollIntoView({behavior:"smooth"})}
 $("n1").onclick=function(){if(!st.svc){$("e1").textContent="Изберете услуга, за да продължите.";return}drawDays();go(2)};
 $("n2").onclick=function(){if(!st.date){$("e2").textContent="Изберете ден.";return}go(3)};
