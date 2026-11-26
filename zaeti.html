@@ -143,7 +143,7 @@ function parse(t){t=String(t||"");var m=t.match(/(\d{1,2})\s+(януари|фе�
  var n=1,q=t.match(/Продължителност:\s*(\d+)/);if(q)n=Math.max(1,Math.min(7,+q[1]));
  var add=[],k=0,x=d;while(k<n){if(x.getDay()!==0){add.push(key(x));k++}x=new Date(x.getTime()+864e5)}
  add.forEach(function(a){fresh[a]=1;if(data[cat].indexOf(a)<0)data[cat].push(a)});data[cat].sort();_cf=cat;draw();
- note("pmsg","inf","Отбелязах: "+DF[d.getDay()]+", "+d.getDate()+" "+MN[d.getMonth()]+(n>1?" · "+n+" дни":"")+" (в жълто). Натиснете „Запази“ долу.");$("ptx").hidden=true;$("ptx").value=""}
+ note("pmsg","inf","Отбелязах: "+DF[d.getDay()]+", "+d.getDate()+" "+MN[d.getMonth()]+(n>1?" · "+n+" дни":"")+" (в жълто). Ако колата ще стои повече дни, натиснете и следващите дни. После „Запази“ долу.");$("ptx").hidden=true;$("ptx").value=""}
 $("pbtn").onclick=function(){if(navigator.clipboard&&navigator.clipboard.readText){navigator.clipboard.readText().then(parse).catch(function(){$("ptx").hidden=false;$("ptx").focus();note("pmsg","","")})}else{$("ptx").hidden=false;$("ptx").focus()}};
 $("ptx").addEventListener("input",function(){if(/\d{1,2}\s+[а-я]+/i.test(this.value))parse(this.value)});
 start();

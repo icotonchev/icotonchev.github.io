@@ -777,7 +777,7 @@ $("n1").onclick=function(){st.init=1;if(!st.svc){$("e1").textContent="Избер
 $("n2").onclick=function(){st.init=1;if(!st.date){$("e2").style.color="";$("e2").textContent="Изберете ден.";return}go(3)};
 qa("[data-b]").forEach(function(b){b.onclick=function(){st.init=1;go(+b.dataset.b)}});
 var MOB=(window.matchMedia&&matchMedia("(pointer:coarse)").matches)||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nОтстъпка: −8% (резервация през сайта)"+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")+(st.date&&st.need>1?"\nПродължителност: "+st.need+" дни":"")}
+function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nОтстъпка: −8% (резервация през сайта)"+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")+(st.cat==="d"?"\nПродължителност: след оглед":"")}
 function smsHref(){return "sms:+"+PH[st.cat]+"?&body="+encodeURIComponent(smsTxt())}
 function vbHref(){return "viber://chat?number=%2B"+PH[st.cat]+"&draft="+encodeURIComponent(smsTxt())}
 function upd(){$("n3").href=vbHref()}["nm","ph","cr","nt"].forEach(function(i){$(i).addEventListener("input",upd)});
