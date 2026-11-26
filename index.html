@@ -425,7 +425,7 @@ a.promo{color:#fff}
 .rlab{position:absolute;top:12px;z-index:2;font:700 11px/1 Onest,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:8px;color:#fff;background:rgba(0,0,0,.6)}.rlab.l{left:12px}.rlab.r{right:12px;background:#2f6bff}
 .rhint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font:600 12px Onest,sans-serif;background:rgba(0,0,0,.6);color:#fff;padding:7px 12px;border-radius:999px;white-space:nowrap;transition:opacity .4s;pointer-events:none}.rbox.used .rhint{opacity:0}
 .rsr{position:absolute;inset:0}
-html,body{overflow-x:clip}</style><script>try{if(/[?&](utm_|fbclid|gclid|igshid)/.test(location.search))history.replaceState(null,"",location.pathname+location.hash)}catch(e){}</script></head><body>
+html,body{overflow-x:clip}.ad{overflow:hidden}.pg{grid-template-columns:repeat(auto-fit,minmax(min(310px,100%),1fr))}.view{overflow-x:clip}html,body{overflow-x:hidden}@supports(overflow:clip){html,body{overflow-x:clip}}</style><script>try{if(/[?&](utm_|fbclid|gclid|igshid)/.test(location.search))history.replaceState(null,"",location.pathname+location.hash)}catch(e){}</script></head><body>
 <header class="top"><div class="w bar">
 <a class="logo" href="#nachalo" aria-label="Tonchev Auto – начало"><img src="icons/logo.png" alt="Tonchev Auto"></a>
 <nav class="tabs" aria-label="Меню"><a href="#nachalo">Начало</a><a href="#rezervacia">Резервация</a><a href="#detailing">Детайлинг</a><a href="#servis">Сервиз</a><a href="#snimki">Снимки</a><a href="#diagnoza">Диагноза</a><a href="#informacia">Информация</a><a href="#za-nas">За нас</a></nav>
@@ -777,7 +777,7 @@ $("n1").onclick=function(){st.init=1;if(!st.svc){$("e1").textContent="Избер
 $("n2").onclick=function(){st.init=1;if(!st.date){$("e2").style.color="";$("e2").textContent="Изберете ден.";return}go(3)};
 qa("[data-b]").forEach(function(b){b.onclick=function(){st.init=1;go(+b.dataset.b)}});
 var MOB=(window.matchMedia&&matchMedia("(pointer:coarse)").matches)||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nОтстъпка: −8% (резервация през сайта)"+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")+(st.date?"\n\nЗа Tonchev (отбележи деня): https://icotonchev.github.io/zaeti.html#c="+st.cat+"&d="+key(st.date)+"&n="+st.need:"")}
+function smsTxt(){var cr=$("cr").value.trim(),nt=$("nt").value.trim();return "НОВА РЕЗЕРВАЦИЯ (сайт)\nУслуга: "+st.svc+"\nВреме за работа: "+(st.wt||"по оглед")+""+(st.max>1?"\nКолата остава: "+dtx(st.need,st.max):"")+"\nОтстъпка: −8% (резервация през сайта)"+"\nПлащане: в брой"+"\nДен: "+dtxt()+"\nКлиент: "+$("nm").value.trim()+"\nТел: "+$("ph").value.trim()+(cr?"\nКола: "+cr:"")+(nt?"\nЗабележка: "+nt:"")+(st.date&&st.need>1?"\nПродължителност: "+st.need+" дни":"")}
 function smsHref(){return "sms:+"+PH[st.cat]+"?&body="+encodeURIComponent(smsTxt())}
 function vbHref(){return "viber://chat?number=%2B"+PH[st.cat]+"&draft="+encodeURIComponent(smsTxt())}
 function upd(){$("n3").href=vbHref()}["nm","ph","cr","nt"].forEach(function(i){$(i).addEventListener("input",upd)});
