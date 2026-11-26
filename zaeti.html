@@ -7,7 +7,7 @@
 <style>
 :root{--bg:#060607;--sf:#0f0f11;--sf2:#17171b;--ln:#26262c;--ink:#f6f6f7;--mu:#a2a2ab;--red:#e4181b;--red2:#ff4a4d;--ok:#2ecc71;color-scheme:dark}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
-.w{max-width:560px;margin:0 auto;padding:18px 16px 120px}
+.w{max-width:560px;margin:0 auto;padding:18px 16px 220px}
 header{display:flex;align-items:center;gap:12px;margin-bottom:14px}header img{height:34px}header h1{font-size:20px;margin:0}
 .card{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:18px;margin:14px 0}
 h2{font-size:18px;margin:0 0 8px}p{margin:8px 0;color:var(--mu)}p b{color:var(--ink)}
@@ -33,7 +33,7 @@ input{width:100%;min-height:50px;border-radius:12px;border:1px solid var(--ln);b
 textarea{width:100%;border-radius:12px;border:1px solid var(--ln);background:var(--sf2);color:var(--ink);padding:12px;font:15px system-ui,sans-serif;margin:10px 0 0}
 .link{background:none;border:0;color:var(--mu);text-decoration:underline;font-size:14px;padding:10px 0;cursor:pointer}
 </style></head><body><div class="w">
-<header><img src="icons/logo.png" alt="Tonchev Auto"><h1>Заети дни</h1></header>
+<header><img src="icons/logo.png" alt="Tonchev Auto"><h1>Заети дни</h1><button class="link" id="lo2" type="button" style="margin-left:auto" hidden>Смени ключа</button></header>
 
 <div id="setup" hidden>
  <div class="card"><h2>Еднократна настройка (около 2 минути)</h2>
@@ -97,7 +97,7 @@ function fetchFile(){return fetch(API+"?ref=main&t="+Date.now(),{headers:hdr(),c
  if(r.status===404){SHA=null;return{d:[],s:[]}}if(r.status===401)throw{code:401};if(!r.ok)throw{code:r.status};
  return r.json().then(function(j){SHA=j.sha;try{return JSON.parse(b64d(j.content))}catch(e){return{d:[],s:[]}}})})}
 
-function show(id){["setup","main","load"].forEach(function(x){$(x).hidden=x!==id});$("bar").hidden=id!=="main"}
+function show(id){["setup","main","load"].forEach(function(x){$(x).hidden=x!==id});$("bar").hidden=id!=="main";$("lo2").hidden=id!=="main"}
 function note(el,cls,t){$(el).innerHTML="";if(!t)return;var m=document.createElement("div");m.className="msg "+cls;m.textContent=t;$(el).appendChild(m)}
 
 function start(){if(!TOKEN){show("setup");return}show("load");$("load").textContent="Зареждане…";
@@ -113,6 +113,8 @@ $("cn").onclick=function(){var v=$("tk").value.trim();if(!/^(github_pat_|ghp_)/.
  fetch("https://api.github.com/repos/"+OWNER+"/"+REPO,{headers:hdr()}).then(function(r){$("cn").disabled=false;$("cn").textContent="Свържи";
   if(r.ok){ls("tz_tok",v);note("sm","","");start()}else{TOKEN="";note("sm","er",r.status===404?"Ключът няма достъп до icotonchev.github.io. При „Repository access“ отметнете това репо.":"Ключът не се прие. Копирайте го пак целия.")}})
  .catch(function(){$("cn").disabled=false;$("cn").textContent="Свържи";TOKEN="";note("sm","er","Няма интернет. Опитайте пак.")})};
+function resetKey(){ls("tz_tok",null);TOKEN="";$("tk").value="";show("setup");scrollTo(0,0)}
+$("lo2").onclick=resetKey;
 $("lo").onclick=function(){if(!confirmLike())return;ls("tz_tok",null);TOKEN="";$("tk").value="";show("setup")};
 function confirmLike(){var b=$("lo");if(b.dataset.s){return true}b.dataset.s=1;b.textContent="Натиснете пак, за да смените ключа";setTimeout(function(){delete b.dataset.s;b.textContent="Смени ключа на този телефон"},4000);return false}
 
@@ -135,7 +137,7 @@ $("sv").onclick=function(){var b=$("sv");b.disabled=true;b.textContent="Запи
   return fetch(API,{method:"PUT",headers:hdr(),body:JSON.stringify(body)})}).then(function(r){
   if(r.status===409||r.status===422){throw{code:"again"}}if(r.status===403||r.status===404)throw{code:"perm"};if(r.status===401)throw{code:401};if(!r.ok)throw{code:r.status};
   return r.json().then(function(j){SHA=j.content&&j.content.sha;data=mine;saved=JSON.stringify(data);fresh={};note("top","","");try{history.replaceState(null,"",location.pathname)}catch(e){}draw();note("bm","ok","Запазено! Сайтът ще се обнови до 1–2 минути.")})})
- .catch(function(e){b.disabled=false;b.textContent="Запази";var t=e&&e.code==="perm"?"Ключът няма право да записва. Направете нов ключ (настройката отгоре) и отметнете репото icotonchev.github.io.":e&&e.code===401?"Ключът не работи. Натиснете „Смени ключа“ и направете нов.":e&&e.code==="again"?"Някой току-що промени дните от друг телефон. Натиснете „Запази“ още веднъж.":"Не се записа. Проверете интернета и натиснете „Запази“ пак.";note("bm","er",t)})};
+ .catch(function(e){b.disabled=false;b.textContent="Запази";var t=e&&e.code==="perm"?"Ключът няма право да записва. Направете нов ключ (настройката отгоре) и отметнете репото icotonchev.github.io.":e&&e.code===401?"Ключът не работи. Натиснете „Смени ключа“ и направете нов.":e&&e.code==="again"?"Някой току-що промени дните от друг телефон. Натиснете „Запази“ още веднъж.":"Не се записа. Проверете интернета и натиснете „Запази“ пак.";note("bm","er",t);if(e&&(e.code==="perm"||e.code===401)){var rb=document.createElement("button");rb.className="btn g";rb.type="button";rb.style.marginTop="8px";rb.textContent="Направи нов ключ";rb.onclick=resetKey;$("bm").appendChild(rb)}})};
 window.addEventListener("beforeunload",function(e){if(TOKEN&&dirty()){e.preventDefault();e.returnValue=""}});
 var MNP=["януари","февруари","март","април","май","юни","юли","август","септември","октомври","ноември","декември"];
 function parse(t){t=String(t||"");var m=t.match(/(\d{1,2})\s+(януари|февруари|март|април|май|юни|юли|август|септември|октомври|ноември|декември)/i);if(!m){note("pmsg","er","Не намерих ден в съобщението. Проверете дали сте копирали заявката от сайта.");return}
