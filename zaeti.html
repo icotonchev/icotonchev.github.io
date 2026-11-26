@@ -22,6 +22,7 @@ input{width:100%;min-height:50px;border-radius:12px;border:1px solid var(--ln);b
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.wh{font-size:12px;color:var(--mu);text-align:center}
 .d{aspect-ratio:1;border-radius:12px;border:1px solid var(--ln);background:var(--sf2);color:var(--ink);font:600 16px system-ui,sans-serif;display:grid;place-items:center;padding:0;position:relative}
 .d.busy{background:var(--red);border-color:var(--red);color:#fff}.d.new{outline:3px solid #ffd23f;outline-offset:1px}
+.d.oth{background:repeating-linear-gradient(135deg,rgba(228,24,27,.35) 0 6px,transparent 6px 12px);border-color:rgba(228,24,27,.5)}
 .d.today{border-color:var(--ink)}.d:disabled{opacity:.25;background:transparent}
 .d.ch::after{content:"";position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:50%;background:#ffd23f}
 .lg{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--mu);margin:12px 0 0}.lg i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
@@ -54,10 +55,10 @@ input{width:100%;min-height:50px;border-radius:12px;border:1px solid var(--ln);b
 <div id="main" hidden>
  <div id="top"></div>
  <div class="card">
-  <p style="margin-top:0">Докоснете ден, за да го направите <b style="color:var(--red2)">зает</b>. Докоснете го пак, за да е свободен. Накрая натиснете <b>Запази</b>.</p>
+  <p style="margin-top:0">Докоснете ден, за да го направите <b style="color:var(--red2)">зает</b>. Зает ден спира резервациите и за детайлинг, и за сервиз. Докоснете го пак, за да е свободен. Накрая натиснете <b>Запази</b>.</p>
   <div class="seg" role="tablist"><button type="button" data-c="d" aria-selected="true">Детайлинг</button><button type="button" data-c="s" aria-selected="false">Сервиз</button></div>
   <div id="cals"></div>
-  <div class="lg"><span><i style="background:var(--red)"></i>Зает</span><span><i style="background:var(--sf2);border:1px solid var(--ln)"></i>Свободен</span><span><i style="background:transparent;outline:2px solid #ffd23f"></i>От новата заявка</span></div>
+  <div class="lg"><span><i style="background:var(--red)"></i>Зает</span><span><i style="background:var(--sf2);border:1px solid var(--ln)"></i>Свободен</span><span><i style="background:repeating-linear-gradient(135deg,rgba(228,24,27,.6) 0 3px,transparent 3px 6px)"></i>Зает в другия (сервиз/детайлинг)</span><span><i style="background:transparent;outline:2px solid #ffd23f"></i>От новата заявка</span></div>
  </div>
  <p class="sm">Неделя не се показва на сайта (почивен ден). Миналите дни се изчистват сами.</p>
  <button class="link" id="lo" type="button">Смени ключа на този телефон</button>
@@ -113,10 +114,10 @@ function confirmLike(){var b=$("lo");if(b.dataset.s){return true}b.dataset.s=1;b
 
 function tabs(){if(ROLE==="s"){cat="s";var sg=document.querySelector(".seg");if(sg)sg.style.display="none";var h=document.querySelector("header h1");if(h)h.textContent="Заети дни · Сервиз"}[].forEach.call(document.querySelectorAll(".seg button"),function(b){b.setAttribute("aria-selected",String(b.dataset.c===cat));b.onclick=function(){cat=b.dataset.c;tabs();draw()}})}
 function dirty(){return JSON.stringify(data)!==saved}
-function draw(){var box=$("cals");box.innerHTML="";var set={};data[cat].forEach(function(k){set[k]=1});var old={};JSON.parse(saved)[cat].forEach(function(k){old[k]=1});
+function draw(){var box=$("cals");box.innerHTML="";var set={},oth={};data[cat].forEach(function(k){set[k]=1});data[cat==="d"?"s":"d"].forEach(function(k){oth[k]=1});var old={};JSON.parse(saved)[cat].forEach(function(k){old[k]=1});
  var t=today(),end=new Date(t.getTime()+70*864e5),d=new Date(t.getFullYear(),t.getMonth(),1,12),m=-1,grid;
  while(d<=end){if(d.getMonth()!==m){m=d.getMonth();var h=document.createElement("div");h.className="mh";h.textContent=MN[m]+" "+d.getFullYear();box.appendChild(h);grid=document.createElement("div");grid.className="cal";["Пн","Вт","Ср","Чт","Пт","Сб","Нд"].forEach(function(x){var s=document.createElement("span");s.className="wh";s.textContent=x;grid.appendChild(s)});box.appendChild(grid);for(var i=0;i<(d.getDay()+6)%7;i++)grid.appendChild(document.createElement("span"))}
-  (function(dd){var k=key(dd),b=document.createElement("button");b.type="button";b.className="d"+(set[k]?" busy":"")+(fresh[k]&&cat===catFresh()?" new":"")+(k===key(t)?" today":"")+(!!set[k]!==!!old[k]?" ch":"");b.textContent=dd.getDate();
+  (function(dd){var k=key(dd),b=document.createElement("button");b.type="button";b.className="d"+(set[k]?" busy":"")+(fresh[k]&&cat===catFresh()?" new":"")+(k===key(t)?" today":"")+(!!set[k]!==!!old[k]?" ch":"")+(!set[k]&&oth[k]?" oth":"");b.textContent=dd.getDate();
    b.disabled=dd<t&&k!==key(t)||dd.getDay()===0;b.setAttribute("aria-label",DF[dd.getDay()]+" "+dd.getDate()+" "+MN[dd.getMonth()]+(set[k]?", зает":", свободен"));
    b.onclick=function(){var a=data[cat],i=a.indexOf(k);if(i<0)a.push(k);else a.splice(i,1);a.sort();draw()};grid.appendChild(b)})(d);
   d=new Date(d.getTime()+864e5)}
