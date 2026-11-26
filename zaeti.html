@@ -73,6 +73,7 @@ var $=function(i){return document.getElementById(i)};
 var MN=["януари","февруари","март","април","май","юни","юли","август","септември","октомври","ноември","декември"];
 var DF=["неделя","понеделник","вторник","сряда","четвъртък","петък","събота"];
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+if(/[?&]servis\b/.test(location.search))ls("tz_role","s");if(/[?&]vsichko\b/.test(location.search))ls("tz_role",null);var ROLE=ls("tz_role")||"";
 var TOKEN=ls("tz_tok")||"",SHA=null,data={d:[],s:[]},saved="",cat="d",fresh={};
 function key(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
 function today(){var d=new Date();d.setHours(12,0,0,0);return d}
@@ -80,7 +81,7 @@ $("gh").href="https://github.com/settings/personal-access-tokens/new?name="+enco
 
 /* от линка в съобщението на клиента: #c=d&d=2026-12-03&n=2 */
 (function(){var h=location.hash.slice(1);if(!h)return;var p={};h.split("&").forEach(function(x){var a=x.split("=");p[a[0]]=decodeURIComponent(a[1]||"")});
- if(!/^\d{4}-\d\d-\d\d$/.test(p.d||""))return;cat=p.c==="s"?"s":"d";var n=Math.max(1,Math.min(7,parseInt(p.n,10)||1)),d=new Date(p.d+"T12:00:00"),k=0;
+ if(!/^\d{4}-\d\d-\d\d$/.test(p.d||""))return;if(ROLE==="s"&&p.c!=="s")return;cat=p.c==="s"?"s":"d";var n=Math.max(1,Math.min(7,parseInt(p.n,10)||1)),d=new Date(p.d+"T12:00:00"),k=0;
  while(k<n){if(d.getDay()!==0){fresh[key(d)]=1;k++}d=new Date(d.getTime()+864e5)}})();
 
 function clean(o){var t=key(today()),r={d:[],s:[]};["d","s"].forEach(function(c){var seen={};(o&&o[c]||[]).forEach(function(x){x=String(x);var a=x.split("/"),s=new Date(a[0]+"T12:00:00"),e=new Date((a[1]||a[0])+"T12:00:00");if(isNaN(s)||isNaN(e))return;for(var d=s;d<=e;d=new Date(d.getTime()+864e5)){var k=key(d);if(k>=t&&!seen[k]){seen[k]=1;r[c].push(k)}}});r[c].sort()});return r}
@@ -110,7 +111,7 @@ $("cn").onclick=function(){var v=$("tk").value.trim();if(!/^(github_pat_|ghp_)/.
 $("lo").onclick=function(){if(!confirmLike())return;ls("tz_tok",null);TOKEN="";$("tk").value="";show("setup")};
 function confirmLike(){var b=$("lo");if(b.dataset.s){return true}b.dataset.s=1;b.textContent="Натиснете пак, за да смените ключа";setTimeout(function(){delete b.dataset.s;b.textContent="Смени ключа на този телефон"},4000);return false}
 
-function tabs(){[].forEach.call(document.querySelectorAll(".seg button"),function(b){b.setAttribute("aria-selected",String(b.dataset.c===cat));b.onclick=function(){cat=b.dataset.c;tabs();draw()}})}
+function tabs(){if(ROLE==="s"){cat="s";var sg=document.querySelector(".seg");if(sg)sg.style.display="none";var h=document.querySelector("header h1");if(h)h.textContent="Заети дни · Сервиз"}[].forEach.call(document.querySelectorAll(".seg button"),function(b){b.setAttribute("aria-selected",String(b.dataset.c===cat));b.onclick=function(){cat=b.dataset.c;tabs();draw()}})}
 function dirty(){return JSON.stringify(data)!==saved}
 function draw(){var box=$("cals");box.innerHTML="";var set={};data[cat].forEach(function(k){set[k]=1});var old={};JSON.parse(saved)[cat].forEach(function(k){old[k]=1});
  var t=today(),end=new Date(t.getTime()+70*864e5),d=new Date(t.getFullYear(),t.getMonth(),1,12),m=-1,grid;
