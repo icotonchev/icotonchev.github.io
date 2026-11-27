@@ -64,6 +64,9 @@ textarea{width:100%;border-radius:12px;border:1px solid var(--ln);background:var
   <div id="cals"></div>
   <div class="lg"><span><i style="background:var(--red)"></i>Зает</span><span><i style="background:var(--sf2);border:1px solid var(--ln)"></i>Свободен</span><span><i style="background:repeating-linear-gradient(135deg,rgba(228,24,27,.6) 0 3px,transparent 3px 6px)"></i>Зает в другия (сервиз/детайлинг)</span><span><i style="background:transparent;outline:2px solid #ffd23f"></i>От новата заявка</span></div>
  </div>
+ <div class="card" id="vcard"><h2>Ваучери</h2><p style="margin-top:0">Когато клиент дойде с ваучер, въведете номера му и натиснете <b>„Използван“</b>. Така никой не може да го ползва втори път на сайта.</p>
+ <input id="vin" type="text" placeholder="TA-XXX-XXXXX" autocapitalize="characters" autocomplete="off" spellcheck="false" style="font-family:ui-monospace,monospace;text-transform:uppercase">
+ <div id="vinfo"></div><button class="btn" id="vuse" type="button" disabled>Маркирай като използван</button><p class="sm" id="vcnt" style="margin-top:10px"></p></div>
  <p class="sm">Неделя не се показва на сайта (почивен ден). Миналите дни се изчистват сами.</p>
  <button class="link" id="lo" type="button">Смени ключа на този телефон</button>
 </div>
@@ -148,6 +151,22 @@ function parse(t){t=String(t||"");var m=t.match(/(\d{1,2})\s+(януари|фе�
  note("pmsg","inf","Отбелязах: "+DF[d.getDay()]+", "+d.getDate()+" "+MN[d.getMonth()]+(n>1?" · "+n+" дни":"")+" (в жълто). Ако колата ще стои повече дни, натиснете и следващите дни. После „Запази“ долу.");$("ptx").hidden=true;$("ptx").value=""}
 $("pbtn").onclick=function(){if(navigator.clipboard&&navigator.clipboard.readText){navigator.clipboard.readText().then(parse).catch(function(){$("ptx").hidden=false;$("ptx").focus();note("pmsg","","")})}else{$("ptx").hidden=false;$("ptx").focus()}};
 $("ptx").addEventListener("input",function(){if(/\d{1,2}\s+[а-я]+/i.test(this.value))parse(this.value)});
+var VH={"29d95ce9d15f540638c1": "Полиране на фарове", "ce2e9a362a716747fa8e": "Полиране на фарове", "73e106d2daf225ef3149": "Полиране на фарове", "744ce3b7fd4b0d784fc9": "Полиране на фарове", "f2b4ba64be67c44af3cb": "Полиране на фарове", "918c211bc07d18deee7a": "Полиране на фарове", "b3dcacea1b0f5a6036d4": "Полиране на фарове", "39d9570c193ec1d18310": "Полиране на фарове", "ec185b8304c08acbe68f": "Полиране на фарове", "400b3bfd26572076c57d": "Полиране на фарове", "df1f536216330258a917": "Full Detail Premium", "c0e9e7a54bb3af4321f6": "Full Detail Premium", "adf37897fef904ad18df": "Full Detail Premium", "4da065c78645b3adc7ac": "Full Detail Premium", "3c781cef54cf04cc1365": "Full Detail Premium", "dff6963c15968aeec164": "Full Detail Premium", "822c024b16e71ce5444b": "Full Detail Premium", "0213629ad56917d285bf": "Full Detail Premium", "7dfb1a0d260ca6523bb0": "Full Detail Premium", "e30dfe527ca6d0d4a2be": "Full Detail Premium", "3d2cc51afff4a9bd9da4": "Интериорно почистване", "18a8df5503e5864b81b0": "Интериорно почистване", "e06038e8b79c4bf6b23b": "Интериорно почистване", "a0f9c66502c7e36e4dcd": "Интериорно почистване", "b288e7ccfdd5658a760d": "Интериорно почистване", "1cc25806a3697d5dcd30": "Интериорно почистване", "5e6053d7097000d2adba": "Интериорно почистване", "f40161b8dc68c4aeaa40": "Интериорно почистване", "9f8d2eb803f17ce17b81": "Интериорно почистване", "753f722dd8d40e05b4d0": "Интериорно почистване", "edb542432033e450b915": "Екстериорно полиране", "f2dfb76014bcbf104d88": "Екстериорно полиране", "04fb45acdf57c23622cd": "Екстериорно полиране", "4a422b779b8c276fb2af": "Екстериорно полиране", "ec68ede2c7a4ffe310c4": "Екстериорно полиране", "796f1bec44d68925ba72": "Екстериорно полиране", "311eadca418a98ad63fa": "Екстериорно полиране", "97f6c82571103b338242": "Екстериорно полиране", "ecf4171c09ecfc1d56e6": "Екстериорно полиране", "3e3e7364688a7ac328ec": "Екстериорно полиране"},VU=null,VSHA=null,VAPI="https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/vaucheri.json",vcur=null;
+function vn(v){return String(v||"").toUpperCase().replace(/[^A-Z0-9]/g,"")}
+function vload(){return fetch(VAPI+"?ref=main&t="+Date.now(),{headers:hdr(),cache:"no-store"}).then(function(r){if(r.status===404){VSHA=null;return{used:[]}}if(!r.ok)throw{code:r.status};return r.json().then(function(j){VSHA=j.sha;try{return JSON.parse(b64d(j.content))}catch(e){return{used:[]}}})}).then(function(o){VU=o.used||[];$("vcnt").textContent="Използвани ваучери досега: "+VU.length;vck()})}
+function vck(){var n=vn($("vin").value);vcur=null;$("vuse").disabled=true;note("vinfo","","");if(n.length<10)return;
+ crypto.subtle.digest("SHA-256",new TextEncoder().encode("tonchev:"+n)).then(function(b){var hx=Array.prototype.map.call(new Uint8Array(b),function(x){return("0"+x.toString(16)).slice(-2)}).join("").slice(0,20);
+  if(vn($("vin").value)!==n)return;
+  if(!VH[hx]){note("vinfo","er","Няма такъв ваучер.");return}
+  if(VU&&VU.indexOf(hx)>-1){note("vinfo","er","Вече е използван ("+VH[hx]+").");return}
+  vcur=hx;note("vinfo","ok","✓ Валиден: "+VH[hx]);$("vuse").disabled=false})}
+$("vin").addEventListener("input",vck);
+$("vuse").onclick=function(){if(!vcur)return;var b=$("vuse"),hx=vcur;b.disabled=true;b.textContent="Записване…";
+ vload().then(function(){if(VU.indexOf(hx)<0)VU.push(hx);var body={message:"Ваучер използван",content:b64e(JSON.stringify({used:VU})+"\n"),branch:"main"};if(VSHA)body.sha=VSHA;
+  return fetch(VAPI,{method:"PUT",headers:hdr(),body:JSON.stringify(body)})}).then(function(r){b.textContent="Маркирай като използван";if(!r.ok)throw{code:r.status};
+  note("vinfo","ok","Готово! Ваучерът е маркиран като използван.");$("vin").value="";vcur=null;$("vcnt").textContent="Използвани ваучери досега: "+VU.length})
+ .catch(function(){b.textContent="Маркирай като използван";b.disabled=false;note("vinfo","er","Не се записа. Опитайте пак.")})};
+var _st=start;start=function(){_st();if(TOKEN)vload().catch(function(){})};
 start();
 })();
 </script></body></html>
