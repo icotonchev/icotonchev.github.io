@@ -1971,5 +1971,7 @@ var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
   if(big){el.classList.remove("bk-go");void el.offsetWidth;el.classList.add("bk-go")}
   },{passive:true});
 })();
+
+(function(){var L=document.querySelector("header .logo");if(!L)return;L.addEventListener("click",function(e){e.preventDefault();if(location.hash!=="#nachalo"&&location.hash!==""){location.hash="nachalo"}setTimeout(function(){try{window.scrollTo({top:0,behavior:"smooth"})}catch(x){window.scrollTo(0,0)}},30)})})();
 window.addEventListener("hashchange",route);route();
 </script></body></html>
